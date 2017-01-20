@@ -8,10 +8,10 @@ Game.prototype = {
 
     this.background = game.add.sprite(0, 0, 'background');
 
-    this.eel = game.add.sprite(300,120, 'eel');
+    this.eel = game.add.sprite(400, 120, 'eel');
     this.eel.scale.setTo(0.3, 0.3);
     this.eel.anchor.setTo(0.5, 0.5);
-    this.eelPosition = 2;
+    this.prisonPosition = 2;
 
     //the victims of interrogative committee
     this.characters = [];
@@ -73,7 +73,10 @@ Game.prototype = {
   },
 
   update: function() {
-    this.eel.x = 120 + this.eelPosition * 140;
+    for(var i = 0; i <= 4; i++) {
+        this.characters[i].sprite.x = -1200 + i*400 + this.prisonPosition * 400;
+    }
+    //this.eel.x = 120 + this.prisonPosition * 140;
 
     if (this.enterKey.isDown) {
       game.state.start("Victory");
@@ -82,18 +85,18 @@ Game.prototype = {
   },
 
   eelLeft : function() {
-    this.eelPosition--;
-    if (this.eelPosition < 0)
-      this.eelPosition = 0;
+    this.prisonPosition++;
+    if (this.prisonPosition > 4)
+      this.prisonPosition = 4;
   },
   eelRight : function() {
-    this.eelPosition++;
-    if (this.eelPosition > 4)
-      this.eelPosition = 4;
+    this.prisonPosition--;
+    if (this.prisonPosition < 0)
+      this.prisonPosition = 0;
   },
   dealDamage : function() {
-    game.sound.play(this.characters[this.eelPosition].sounds[Math.floor(Math.random() * this.characters[this.eelPosition].sounds.length)]);
-    //console.log("deal damage to:" + this.eelPosition);
+    game.sound.play(this.characters[this.prisonPosition].sounds[Math.floor(Math.random() * this.characters[this.prisonPosition].sounds.length)]);
+    //console.log("deal damage to:" + this.prisonPosition);
   },
 
   shuffle : function(array) {
@@ -110,7 +113,7 @@ Game.prototype = {
   },
 
   selectTarget : function() {
-    console.log("select target:" + this.eelPosition);
+    console.log("select target:" + this.prisonPosition);
   }
 
 }

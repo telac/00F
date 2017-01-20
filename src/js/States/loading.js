@@ -23,7 +23,7 @@ Loading.prototype = {
         game.load.image("enter-key", "content/enter-key-small.png");
 
         // Characters
-        game.load.image("eel", "content/img/characters/eel.png");
+        game.load.image("eel", "content/img/characters/ankerias1.png");
         game.load.image("lightBlue", "content/img/characters/blue.png");
         game.load.image("darkBlue", "content/img/characters/darkblue.png");
         game.load.image("darkGreen", "content/img/characters/darkgreen.png");
@@ -33,11 +33,10 @@ Loading.prototype = {
         game.load.image("lightRed", "content/img/characters/red.png");
 
         // Buttons
-        game.load.image("shock", "content/img/buttons/electrify.png");
+        game.load.image("shock", "content/img/buttons/electrify1.png");
         game.load.image("left", "content/img/buttons/left.png");
         game.load.image("right", "content/img/buttons/right.png");
         game.load.image("target", "content/img/buttons/target.png");
-
 
     },
 

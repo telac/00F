@@ -46,6 +46,6 @@ function Character(id) {
         console.log("ya u don fucked up");
     }
     this.health = this.maxHealth;
-    this.sprite.scale.setTo(0.3);
+    this.sprite.scale.setTo(1);
     this.sprite.anchor.setTo(0.5);
 }
