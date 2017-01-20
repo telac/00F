@@ -28,6 +28,13 @@ Loading.prototype = {
         game.load.image("darkBlue", "content/img/characters/darkblue.png");
         game.load.image("green", "content/img/characters/green.png");
 
+        // Buttons
+        game.load.image("shock", "content/img/buttons/electrify.png");
+        game.load.image("left", "content/img/buttons/left.png");
+        game.load.image("right", "content/img/buttons/right.png");
+        game.load.image("target", "content/img/buttons/target.png");
+
+
     },
 
     loadSpritesheets: function() {

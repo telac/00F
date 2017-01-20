@@ -21,13 +21,30 @@ Game.prototype = {
     this.lightBlue.health = 10;
     this.darkBlue.health = 15;
 
-
-    //scales
     this.lightBlue.scale.setTo(0.5, 0.5);
     this.darkBlue.scale.setTo(0.5, 0.5);
     this.green.scale.setTo(0.5, 0.5);
 
+    //buttons
+    this.shock = game.add.button(game.world.centerX, 550, 'shock', this.dealDamage, this);
+    this.shock.scale.setTo(0.5, 0.5);
+    this.shock.anchor.setTo(0.5, 0.5);
 
+    this.leftButton = game.add.button(game.world.centerX - 100, 550, 'left', this.eelLeft, this);
+    this.leftButton.scale.setTo(0.5, 0.5);
+    this.leftButton.anchor.setTo(0.5, 0.5);
+
+    this.rightButton = game.add.button(game.world.centerX + 100, 550, 'right', this.eelRight, this);
+    this.rightButton.scale.setTo(0.5, 0.5);
+    this.rightButton.anchor.setTo(0.5, 0.5);
+
+    this.selectButton = game.add.button(game.world.centerX + 350, 550, 'target', this.selectTarget, this);
+    this.selectButton.scale.setTo(0.5, 0.5);
+    this.selectButton.anchor.setTo(0.5, 0.5);
+
+
+
+    // button definitions
     this.upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
     this.downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
     this.leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
@@ -61,6 +78,9 @@ Game.prototype = {
   },
   dealDamage : function() {
     console.log("deal damage to:" + this.eelPosition);
-  }
+  },
+  selectTarget : function() {
+    console.log("select target:" + this.eelPosition);
+  },
 
 }
