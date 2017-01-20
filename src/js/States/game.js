@@ -34,7 +34,26 @@ Game.prototype = {
     this.darkBlue.scale.setTo(0.5, 0.5);
     this.green.scale.setTo(0.5, 0.5);
 
+    //buttons
+    this.shock = game.add.button(game.world.centerX, 550, 'shock', this.dealDamage, this);
+    this.shock.scale.setTo(0.5, 0.5);
+    this.shock.anchor.setTo(0.5, 0.5);
 
+    this.leftButton = game.add.button(game.world.centerX - 100, 550, 'left', this.eelLeft, this);
+    this.leftButton.scale.setTo(0.5, 0.5);
+    this.leftButton.anchor.setTo(0.5, 0.5);
+
+    this.rightButton = game.add.button(game.world.centerX + 100, 550, 'right', this.eelRight, this);
+    this.rightButton.scale.setTo(0.5, 0.5);
+    this.rightButton.anchor.setTo(0.5, 0.5);
+
+    this.selectButton = game.add.button(game.world.centerX + 350, 550, 'target', this.selectTarget, this);
+    this.selectButton.scale.setTo(0.5, 0.5);
+    this.selectButton.anchor.setTo(0.5, 0.5);
+
+
+
+    // button definitions
     this.upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
     this.downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
     this.leftKey = game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
@@ -72,17 +91,20 @@ Game.prototype = {
   },
 
   shuffle : function(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-  while (0 !== currentIndex) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
 
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+  },
 
+  selectTarget : function() {
+    console.log("select target:" + this.eelPosition);
   }
 
 }
