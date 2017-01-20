@@ -37,6 +37,7 @@ Loading.prototype = {
         game.load.image("left", "content/img/buttons/left.png");
         game.load.image("right", "content/img/buttons/right.png");
         game.load.image("target", "content/img/buttons/target.png");
+        game.load.image("microfoni", "content/img/buttons/microfoni.png");
 
     },
 
