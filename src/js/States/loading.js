@@ -20,6 +20,13 @@ Loading.prototype = {
         game.load.image("goaty", "content/goaty-small.png");
         game.load.image("grammi", "content/grammi.png");
         game.load.image("enter-key", "content/enter-key-small.png");
+
+        // Characters
+        game.load.image("eel", "content/img/characters/eel.png");
+        game.load.image("light-blue", "content/img/characters/blue.png");
+        game.load.image("dark-blue", "content/img/characters/darkblue.png");
+        game.load.image("green", "content/img/characters/green.png");
+
     },
 
     loadSpritesheets: function() {
@@ -52,7 +59,8 @@ Loading.prototype = {
     create: function() {
         this.addGameStates();
         window.setTimeout(function() {
-            game.state.start("Menu");
+            game.state.start("Game");
+            // game.state.start("Menu");
         }, 1000);
     },
 
