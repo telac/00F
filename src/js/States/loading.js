@@ -7,12 +7,13 @@ Loading.prototype = {
         game.load.script("GameScript", "js/States/game.js");
         game.load.script("TutorialScript", "js/States/tutorial.js");
         game.load.script("VictoryScript", "js/States/victory.js");
+
         game.load.script("character", "js/Objects/character.js");
     },
 
     loadImages: function () {
         // Backgrounds
-        game.load.image('background', 'content/SCENE1.png');
+        game.load.image('background', 'content/img/backgrounds/vesitausta.png');
         game.load.image("winscreen", "content/winscreen.png");
         game.load.image("menuscreen", "content/menu.png");
         game.load.image("tutorial-1", "content/tutorial.png");
@@ -25,7 +26,11 @@ Loading.prototype = {
         game.load.image("eel", "content/img/characters/eel.png");
         game.load.image("lightBlue", "content/img/characters/blue.png");
         game.load.image("darkBlue", "content/img/characters/darkblue.png");
-        game.load.image("green", "content/img/characters/green.png");
+        game.load.image("darkGreen", "content/img/characters/darkgreen.png");
+        game.load.image("darkRed", "content/img/characters/darkred.png");
+        game.load.image("lightGreen", "content/img/characters/green.png");
+        game.load.image("purple", "content/img/characters/purple.png");
+        game.load.image("lightRed", "content/img/characters/red.png");
 
         // Buttons
         game.load.image("shock", "content/img/buttons/electrify.png");

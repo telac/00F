@@ -10,29 +10,35 @@ Game.prototype = {
 
     this.eel = game.add.sprite(300,120, 'eel');
     this.eel.scale.setTo(0.3, 0.3);
+    this.eel.anchor.setTo(0.5, 0.5);
     this.eelPosition = 2;
 
     //the victims of interrogative committee
-    this.lightBlue = game.add.sprite(100,200, 'lightBlue');
-    this.darkBlue = game.add.sprite(300,200, 'darkBlue');
-    this.green = game.add.sprite(500,200, 'green');
-
-    this.maxCharacters = 3;
     this.characters = [];
-    for (var i = 0; i <= 2; i++) {
-      this.characters.push(i);
+    for (var i = 0; i <= 6; i++) {
+      this.characters.push(new Character(i));
     }
 
     this.characters = this.shuffle(this.characters);
     for (var i = 0; i <= 0; i++) {
-      this.characters.pop();
+      this.rm = this.characters.pop();
+      this.rm.sprite.x = -1000;
+      this.rm.sprite.y = -1000;
+      this.rm = this.characters.pop();
+      this.rm.sprite.x = -1000;
+      this.rm.sprite.y = -1000;
+    }
+
+    for (var i = 0; i <= 4; i++) {
+      this.characters[i].sprite.x = 120 + i*140;
+      this.characters[i].sprite.y = 300;
     }
     //console.log(this.characters);
 
     //scales
-    this.lightBlue.scale.setTo(0.5, 0.5);
-    this.darkBlue.scale.setTo(0.5, 0.5);
-    this.green.scale.setTo(0.5, 0.5);
+    // this.lightBlue.scale.setTo(0.5, 0.5);
+    // this.darkBlue.scale.setTo(0.5, 0.5);
+    // this.green.scale.setTo(0.5, 0.5);
 
     //buttons
     this.shock = game.add.button(game.world.centerX, 550, 'shock', this.dealDamage, this);
@@ -63,11 +69,11 @@ Game.prototype = {
     // actions for leftKey and rightKey
     this.leftKey.onDown.add(this.eelLeft, this);
     this.rightKey.onDown.add(this.eelRight, this);
-    this.downKey.onDown.add(this.dealDamage)
+    this.downKey.onDown.add(this.dealDamage, this);
   },
 
   update: function() {
-    this.eel.x = 100 + this.eelPosition * 200;
+    this.eel.x = 120 + this.eelPosition * 140;
 
     if (this.enterKey.isDown) {
       game.state.start("Victory");
@@ -82,12 +88,12 @@ Game.prototype = {
   },
   eelRight : function() {
     this.eelPosition++;
-    if (this.eelPosition > 2)
-      this.eelPosition = 2;
+    if (this.eelPosition > 4)
+      this.eelPosition = 4;
   },
   dealDamage : function() {
-    game.sound.play('a-01');
-    console.log("deal damage to:" + this.eelPosition);
+    game.sound.play(this.characters[this.eelPosition].sounds[Math.floor(Math.random() * this.characters[this.eelPosition].sounds.length)]);
+    //console.log("deal damage to:" + this.eelPosition);
   },
 
   shuffle : function(array) {
