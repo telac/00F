@@ -7,6 +7,7 @@ Loading.prototype = {
         game.load.script("GameScript", "js/States/game.js");
         game.load.script("TutorialScript", "js/States/tutorial.js");
         game.load.script("VictoryScript", "js/States/victory.js");
+        game.load.script("character", "js/Objects/character.js");
     },
 
     loadImages: function () {
@@ -23,8 +24,8 @@ Loading.prototype = {
 
         // Characters
         game.load.image("eel", "content/img/characters/eel.png");
-        game.load.image("light-blue", "content/img/characters/blue.png");
-        game.load.image("dark-blue", "content/img/characters/darkblue.png");
+        game.load.image("lightBlue", "content/img/characters/blue.png");
+        game.load.image("darkBlue", "content/img/characters/darkblue.png");
         game.load.image("green", "content/img/characters/green.png");
 
     },

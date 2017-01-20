@@ -13,9 +13,14 @@ Game.prototype = {
     this.eelPosition = 2;
 
     //the victims of interrogative committee
-    this.lightBlue = game.add.sprite(100,200, 'light-blue');
-    this.darkBlue = game.add.sprite(300,200, 'dark-blue');
+    this.lightBlue = game.add.sprite(100,200, 'lightBlue');
+    this.darkBlue = game.add.sprite(300,200, 'darkBlue');
     this.green = game.add.sprite(500,200, 'green');
+
+    this.green.health = 5;
+    this.lightBlue.health = 10;
+    this.darkBlue.health = 15;
+
 
     //scales
     this.lightBlue.scale.setTo(0.5, 0.5);
@@ -30,8 +35,9 @@ Game.prototype = {
     this.enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
 
     // actions for leftKey and rightKey
-    this.leftKey.onDown.add(this.EelLeft, this);
-    this.rightKey.onDown.add(this.EelRight, this);
+    this.leftKey.onDown.add(this.eelLeft, this);
+    this.rightKey.onDown.add(this.eelRight, this);
+    this.downKey.onDown.add(this.dealDamage)
   },
 
   update: function() {
@@ -43,15 +49,18 @@ Game.prototype = {
 
   },
 
-  EelLeft : function() {
+  eelLeft : function() {
     this.eelPosition--;
     if (this.eelPosition < 0)
       this.eelPosition = 0;
   },
-  EelRight : function() {
+  eelRight : function() {
     this.eelPosition++;
     if (this.eelPosition > 2)
       this.eelPosition = 2;
   },
+  dealDamage : function() {
+    console.log("deal damage to:" + this.eelPosition);
+  }
 
 }
