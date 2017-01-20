@@ -30,8 +30,19 @@ Game.prototype = {
     }
 
     for (var i = 0; i <= 4; i++) {
+      this.characters[i].sounds = this.shuffle(this.characters[i].sounds);
       this.characters[i].sprite.x = 120 + i*140;
       this.characters[i].sprite.y = 300;
+    }
+
+    this.guilty = this.characters[Math.floor(Math.random() * this.characters.length)];
+    console.log("guilty: " + this.guilty.name);
+    this.theSound = this.guilty.sounds.pop();
+
+    for (var i = 0; i <= 4; i++) {
+      if (this.characters[i].name != this.guilty.name) {
+        this.characters[i].sounds.pop();
+      }
     }
     //console.log(this.characters);
 
@@ -57,7 +68,9 @@ Game.prototype = {
     this.selectButton.scale.setTo(0.5, 0.5);
     this.selectButton.anchor.setTo(0.5, 0.5);
 
-
+    this.microfoneButton = game.add.button(50, 50, 'microfoni', this.playTheSound, this);
+    this.microfoneButton.scale.setTo(0.5, 0.5);
+    this.microfoneButton.anchor.setTo(0.5, 0.5);
 
     // button definitions
     this.upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
@@ -92,8 +105,10 @@ Game.prototype = {
       this.eelPosition = 4;
   },
   dealDamage : function() {
-    game.sound.play(this.characters[this.eelPosition].sounds[Math.floor(Math.random() * this.characters[this.eelPosition].sounds.length)]);
-    //console.log("deal damage to:" + this.eelPosition);
+    var s = this.characters[this.eelPosition].sounds[Math.floor(Math.random() * this.characters[this.eelPosition].sounds.length)];
+    //console.log(s);
+    game.sound.play(s);
+    console.log("deal damage to:" + this.characters[this.eelPosition].name);
   },
 
   shuffle : function(array) {
@@ -110,7 +125,11 @@ Game.prototype = {
   },
 
   selectTarget : function() {
-    console.log("select target:" + this.eelPosition);
+    console.log("select target:" + this.characters[this.eelPosition].name);
+  },
+
+  playTheSound : function() {
+    game.sound.play(this.theSound);
   }
 
 }
