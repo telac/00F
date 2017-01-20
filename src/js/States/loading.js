@@ -12,7 +12,6 @@ Loading.prototype = {
 
     loadImages: function () {
         // Backgrounds
-
         game.load.image('background', 'content/SCENE1.png');
         game.load.image("winscreen", "content/winscreen.png");
         game.load.image("menuscreen", "content/menu.png");
@@ -34,6 +33,23 @@ Loading.prototype = {
         game.load.spritesheet("playermini", "content/sprite.png", 150, 150, 3);
     },
 
+    loadAudio: function() {
+        game.load.audio('a-01', 'content/audio/a-01.wav');
+        game.load.audio('a-02', 'content/audio/a-02.wav');
+        game.load.audio('a-03', 'content/audio/a-03.wav');
+        game.load.audio('a-04', 'content/audio/a-04.wav');
+
+        game.load.audio('b-01', 'content/audio/b-01.wav');
+        game.load.audio('b-02', 'content/audio/b-02.wav');
+        game.load.audio('b-03', 'content/audio/b-03.wav');
+        game.load.audio('b-04', 'content/audio/b-04.wav');
+
+        game.load.audio('c-01', 'content/audio/c-01.wav');
+        game.load.audio('c-02', 'content/audio/c-02.wav');
+        game.load.audio('c-03', 'content/audio/c-03.wav');
+        game.load.audio('c-04', 'content/audio/c-04.wav');
+    },
+
     loadFonts: function () {
     },
 
@@ -48,6 +64,7 @@ Loading.prototype = {
         this.loadImages();
         this.loadSpritesheets();
         this.loadFonts();
+        this.loadAudio();
     },
 
     addGameStates: function () {

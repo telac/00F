@@ -17,10 +17,17 @@ Game.prototype = {
     this.darkBlue = game.add.sprite(300,200, 'darkBlue');
     this.green = game.add.sprite(500,200, 'green');
 
-    this.green.health = 5;
-    this.lightBlue.health = 10;
-    this.darkBlue.health = 15;
+    this.maxCharacters = 3;
+    this.characters = [];
+    for (var i = 0; i <= 2; i++) {
+      this.characters.push(i);
+    }
 
+    this.characters = this.shuffle(this.characters);
+    for (var i = 0; i <= 0; i++) {
+      this.characters.pop();
+    }
+    //console.log(this.characters);
 
     //scales
     this.lightBlue.scale.setTo(0.5, 0.5);
@@ -60,7 +67,22 @@ Game.prototype = {
       this.eelPosition = 2;
   },
   dealDamage : function() {
+    game.sound.play('a-01');
     console.log("deal damage to:" + this.eelPosition);
+  },
+
+  shuffle : function(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+
   }
 
 }
