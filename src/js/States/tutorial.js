@@ -17,13 +17,10 @@ Tutorial.prototype = {
         }, 10);
 
         this.pageNames = [
-            'tutorial-1',
+            'walrus',
         ];
         this.currentPage = 0;
         this.setImage(this.pageNames[0]);
-
-
-
 
         this.enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
         this.enterKey.onDown.add(function() {
@@ -42,7 +39,7 @@ Tutorial.prototype = {
             return;
         }, this);
 
-        this.enterKeySprite = game.add.sprite(720, 610, 'enter-key');
+        this.enterKeySprite = game.add.sprite(260, 610, 'enter-key');
         game.add.tween(this.enterKeySprite).
             to({y: '+10'}, 800, Phaser.Easing.Sinusoidal.InOut, true, delay = 0, repeat = -1, yoyo = true);
 
@@ -60,6 +57,7 @@ Tutorial.prototype = {
         }
         this.currentSprite = game.add.sprite(0, 0, imageName);
         this.currentSprite.smoothed = false;
+        this.currentSprite.scale.setTo(1280/this.currentSprite.width, 720/this.currentSprite.height);
     },
 
     startGame: function() {

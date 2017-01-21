@@ -4,8 +4,8 @@ var Main = function () {};
 Main.prototype = {
     preload: function() {
         //preload assets of the loading screen here
-        game.load.image("loadingbar", "content/loadingbar.png");
-        game.load.image("loadingscreen", "content/loadingscreen.png");
+        game.load.image("loadingbar", "content/img/backgrounds/downloaddelfiini.png");
+        game.load.image("loadingscreen", "content/img/backgrounds/loadingscreen.png");
         game.load.script('loading',  'js/States/loading.js');
     },
 
