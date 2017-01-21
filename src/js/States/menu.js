@@ -16,26 +16,33 @@ Menu.prototype = {
         }, 10);
 
         this.background = game.add.sprite(0, 0, 'menuscreen');
+        this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
 
-        // Enter key sprite
-        this.keySprite = game.add.sprite(game.world.centerX, 1.5 * game.world.centerY, "enter-key");
-        this.keySprite.anchor.set(0.5);
-        this.keySprite.scale.setTo(3.0);
-        this.keySprite.smoothed = false;
-        this.keySpriteTween = game.add.tween(this.keySprite);
-        this.keySpriteTween.to({y: '+20'}, 800, Phaser.Easing.Sinusoidal.InOut, true, delay = 0, repeat = -1, yoyo = true);
-
+        this.playButton = game.add.button(1170, 710, 'playButton', this.next, this);
+        this.playButton.scale.setTo(2.6);
+        this.playButton.anchor.setTo(1);
         this.enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+
+        this.fish1 = new Fish();
+        this.fish1.tpToMid();
+        this.fish2 = new Fish();
+        this.fish2.tpToMid();
+    },
+
+    next: function() {
+      game.add
+          .tween(game.world).to({alpha: 0.0}, 1000, Phaser.Easing.Linear.Out, true)
+          .onComplete.add(function() {
+              game.state.start("Tutorial");
+          }, this);
     },
 
     update: function() {
         // Pressing the enter key starts the game
         if (this.enterKey.isDown) {
-            game.add
-                .tween(game.world).to({alpha: 0.0}, 1000, Phaser.Easing.Linear.Out, true)
-                .onComplete.add(function() {
-                    game.state.start("Tutorial");
-                }, this);
+          this.next();
         }
+        this.fish1.move();
+        this.fish2.move();
     },
 }

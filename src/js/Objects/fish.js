@@ -18,6 +18,7 @@ Fish.prototype.move = function() {
         this.cr();
       }
     }
+
 }
 
 Fish.prototype.cr = function() {
@@ -33,4 +34,6 @@ Fish.prototype.cr = function() {
     this.sprite.scale.setTo(this.size);
   }
   this.sprite.anchor.setTo(0.5);
+  this.tween = game.add.tween(this.sprite);
+  this.tween.to({y: '+20'}, 800, Phaser.Easing.Sinusoidal.InOut, true, delay = 0, repeat = -1, yoyo = true);
 }

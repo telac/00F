@@ -20,7 +20,7 @@ Loading.prototype = {
         game.load.image("chosenWrongDead", "content/img/backgrounds/chosenwrongdead.png");
         game.load.image("chosenRightDead", "content/img/backgrounds/chosenrightdead.png");
         game.load.image("backgroundOfDoom", "content/img/backgrounds/maisemaDOOM.png");
-        game.load.image("menuscreen", "content/menu.png");
+        game.load.image("menuscreen", "content/img/backgrounds/menu1.png");
         game.load.image("tutorial-1", "content/img/backgrounds/tutorial-1.png");
 
         game.load.image("enter-key", "content/enter-key-small.png");
@@ -46,12 +46,7 @@ Loading.prototype = {
         game.load.image("fish2", "content/img/misc/kala2.png");
 
         // Buttons
-        game.load.image("shock", "content/img/buttons/electrify1.png");
-        game.load.image("left", "content/img/buttons/left.png");
-        game.load.image("right", "content/img/buttons/right.png");
-        game.load.image("target", "content/img/buttons/target.png");
         game.load.image("microfoni", "content/img/buttons/microfoni.png");
-
         game.load.image("wave", "content/img/misc/aalto.png");
         game.load.image("sky1", "content/img/misc/skyhouse1.png");
         game.load.image("sky2", "content/img/misc/skyscraper1.png");
@@ -60,17 +55,17 @@ Loading.prototype = {
         game.load.image("meterButton", "content/img/buttons/meterButton.png")
         game.load.image("orangeLight", "content/img/buttons/oranssivalo.png");
         game.load.image("redLight", "content/img/buttons/punainenvalo.png");
+        game.load.image("playButton", "content/img/buttons/playnappi.png");
 
     },
 
     loadSpritesheets: function() {
-        game.load.spritesheet("playermini", "content/sprite.png", 150, 150, 3);
         game.load.spritesheet("agent", "content/img/characters/agent01.png", 225, 580, 2);
         game.load.spritesheet("teen", "content/img/characters/teenager.png", 1600, 2899, 2);
         game.load.spritesheet("electrify", "content/img/buttons/electrify.png", 110, 132);
         game.load.spritesheet("choose", "content/img/buttons/terminateSheet.png", 181, 160);
         game.load.spritesheet("direction", "content/img/buttons/direction.png", 358, 360);
-
+        game.load.spritesheet("scientist", "content/img/characters/scientysts.png", 1122, 2920, 2);
     },
 
     loadAudio: function() {
@@ -117,7 +112,7 @@ Loading.prototype = {
     create: function() {
         this.addGameStates();
         window.setTimeout(function() {
-            game.state.start("Game");
+            game.state.start("Menu");
         }, 1000);
     },
 

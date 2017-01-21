@@ -55,7 +55,14 @@ Victory.prototype = {
 
         this.wave = game.add.sprite(0, 490, 'wave');
         this.wave.anchor.setTo(0.5);
-        this.wave.scale.setTo(-1, 1);
+        if (playerWon && chosenAlive) {
+          this.wave.scale.setTo(-1, 1);
+        } else {
+          this.wave.scale.setTo(-0.1, 0.1);
+          this.wave.y = 697;
+          game.world.bringToTop(this.wave);
+        }
+
 
         this.buildingsFront = [];
         x = 200;
@@ -97,16 +104,18 @@ Victory.prototype = {
           this.wave.x = this.x;
           this.x++;
 
-          for (var i = 0; i <= this.buildingsBack.length-1; i++) {
-            if (this.buildingsBack[i].x < this.x + 100 && i != 0 && i != 7) {
-              this.buildingsBack[i].y++;
-              this.buildingsBack[i].x += Math.round(Math.random()*2) - 1;
+          if (playerWon && chosenAlive) {
+            for (var i = 0; i <= this.buildingsBack.length-1; i++) {
+              if (this.buildingsBack[i].x < this.x + 100 && i != 0 && i != 7) {
+                this.buildingsBack[i].y++;
+                this.buildingsBack[i].x += Math.round(Math.random()*2) - 1;
+              }
             }
-          }
-          for (var i = 0; i <= this.buildingsFront.length-1; i++) {
-            if (this.buildingsFront[i].x < this.x + 200 && i != 2 && i != 5) {
-              this.buildingsFront[i].y++;
-              this.buildingsFront[i].x += Math.round(Math.random()*2) - 1;
+            for (var i = 0; i <= this.buildingsFront.length-1; i++) {
+              if (this.buildingsFront[i].x < this.x + 200 && i != 2 && i != 5) {
+                this.buildingsFront[i].y++;
+                this.buildingsFront[i].x += Math.round(Math.random()*2) - 1;
+              }
             }
           }
     },
