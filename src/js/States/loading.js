@@ -40,7 +40,6 @@ Loading.prototype = {
         game.load.image("fish1", "content/img/misc/kala1.png");
         game.load.image("fish2", "content/img/misc/kala2.png");
 
-
         // Buttons
         game.load.image("shock", "content/img/buttons/electrify1.png");
         game.load.image("left", "content/img/buttons/left.png");
@@ -52,6 +51,9 @@ Loading.prototype = {
         game.load.image("sky1", "content/img/misc/skyhouse1.png");
         game.load.image("sky2", "content/img/misc/skyscraper1.png");
         game.load.image("sky3", "content/img/misc/skypiercer1.png");
+
+        game.load.image("orangeLight", "content/img/buttons/oranssivalo.png");
+        game.load.image("redLight", "content/img/buttons/punainenvalo.png");
     },
 
     loadSpritesheets: function() {

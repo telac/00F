@@ -23,7 +23,6 @@ Game.prototype = {
   	//	Disables anti-aliasing when we draw sprites to the BitmapData
   	this.bmd.smoothed = true;
 
-
     this.eel.scale.setTo(0.3, 0.3);
     this.eel.anchor.setTo(0.5, 0.5);
     this.prisonPosition = 2;
@@ -88,6 +87,15 @@ Game.prototype = {
     this.microphoneButton.scale.setTo(0.7);
     this.microphoneButton.anchor.setTo(0.5);
 
+    this.orangeLight = game.add.sprite(33, 607, "orangeLight");
+    this.orangeLight.scale.setTo(0.45);
+    this.orangeLight.anchor.setTo(0.5);
+
+    this.redLight = game.add.sprite(33, 647, "redLight");
+    this.redLight.scale.setTo(0.45);
+    this.redLight.anchor.setTo(0.5);
+    this.redLight.alpha = 0;
+
     // button definitions
     this.upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
     this.downKey = game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
@@ -106,31 +114,15 @@ Game.prototype = {
     this.angle = Math.sin(this.time.now/this.mod);
     this.angle_y = Math.sin(this.time.now/(this.mod*12));
     this.angle_2 = -Math.cos(this.time.now/this.mod);
+
     if (this.angle_2 < 0) {
       this.eel.scale.setTo(-0.3, 0.3);
-
-    }
-    else {
+    } else {
       this.eel.scale.setTo(0.3, 0.3);
-
     }
 
     this.eel.y  = 120 - 6 * this.angle_y;
     this.eel.x = 640 + 150 * this.angle;
-
-  },
-
-
-  update: function() {
-    this.backgroundAnimation();
-    for(var i = 0; i <= 4; i++) {
-        //this.characters[i].sprite.x = +400 + (i)*400 - this.prisonPosition * 400;
-        game.add.tween(this.characters[i].sprite).to({ x: 640 + (i)*640 - this.prisonPosition * 640 }, 50, Phaser.Easing.Linear.InOut, true, 0.1, 1000, true);
-    }
-
-    if (this.enterKey.isDown) {
-      this.selectTarget();
-    }
 
     this.bmd.clear();
     this.bmd.ctx.beginPath();
@@ -141,6 +133,20 @@ Game.prototype = {
 
     for (var i = 0; i <= 29; i++) {
       this.fishes[i].move();
+    }
+
+    this.orangeLight.alpha = Math.sin(this.time.now/250);
+
+  },
+
+  update: function() {
+    this.backgroundAnimation();
+    for(var i = 0; i <= 4; i++) {
+        game.add.tween(this.characters[i].sprite).to({ x: 640 + (i)*640 - this.prisonPosition * 640 }, 50, Phaser.Easing.Linear.InOut, true, 0.1, 1000, true);
+    }
+
+    if (this.enterKey.isDown) {
+      this.selectTarget();
     }
   },
 
