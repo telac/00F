@@ -71,6 +71,7 @@ Loading.prototype = {
         game.load.spritesheet("direction", "content/img/buttons/direction.png", 358, 360);
         game.load.spritesheet("scientist", "content/img/characters/scientysts.png", 1122, 2920, 2);
         game.load.spritesheet("granny", "content/img/characters/granny.png", 688, 1448, 2);
+        game.load.spritesheet("robot", "content/img/characters/robo.png", 358, 417, 2);
     },
 
     loadAudio: function() {
