@@ -29,10 +29,7 @@ Game.prototype = {
     }
 
     this.characters = this.shuffle(this.characters);
-    for (var i = 0; i <= 0; i++) {
-      this.rm = this.characters.pop();
-      this.rm.sprite.x = -1000;
-      this.rm.sprite.y = -1000;
+    for (var i = 0; i <= 1; i++) {
       this.rm = this.characters.pop();
       this.rm.sprite.x = -1000;
       this.rm.sprite.y = -1000;

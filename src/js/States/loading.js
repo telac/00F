@@ -38,11 +38,16 @@ Loading.prototype = {
         game.load.image("target", "content/img/buttons/target.png");
         game.load.image("microfoni", "content/img/buttons/microfoni.png");
 
+        game.load.image("wave", "content/wave.png");
+        game.load.image("sky1", "content/img/misc/skyhouse1.png");
+        game.load.image("sky2", "content/img/misc/skyscraper1.png");
+        game.load.image("sky3", "content/img/misc/skypiercer1.png");
     },
 
     loadSpritesheets: function() {
         game.load.spritesheet("playermini", "content/sprite.png", 150, 150, 3);
         game.load.spritesheet("agent", "content/img/characters/agent01.png", 225, 580, 2);
+        game.load.spritesheet("teen", "content/img/characters/teenager.png", 1600, 2899, 2);
     },
 
     loadAudio: function() {
@@ -89,8 +94,7 @@ Loading.prototype = {
     create: function() {
         this.addGameStates();
         window.setTimeout(function() {
-            game.state.start("Game");
-            // game.state.start("Menu");
+            game.state.start("Victory");
         }, 1000);
     },
 
