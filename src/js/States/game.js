@@ -17,8 +17,6 @@ Game.prototype = {
   	this.bmd.addToWorld();
   	//	Disables anti-aliasing when we draw sprites to the BitmapData
   	this.bmd.smoothed = true;
-
-
     this.prisonPosition = 2;
 
     this.console = game.add.sprite(0, 0, 'console');
@@ -64,13 +62,10 @@ Game.prototype = {
     }
     //console.log(this.characters);
     //salamaefektit
-    this.flashBig = game.add.sprite(600, 180, 'flashBig');
+    this.flashBig = game.add.sprite(640, 160, 'flashBig');
     this.flashBig.scale.setTo(0.5);
+    this.flashBig.anchor.setTo(0.2, 0);
     this.flashBig.alpha = 0;
-    this.flashSmall = game.add.sprite(600,180,'flashSmall');
-    this.flashSmall.scale.setTo(0.5);
-    this.flashSmall.scale.setTo(0.5);
-    this.flashSmall.alpha = 0;
 
     // the ankerias
     this.eel = game.add.sprite(640, 120, 'eel');
@@ -165,6 +160,9 @@ Game.prototype = {
       this.redLight.alpha = 0;
     }
 
+    this.flashBig.x = this.eel.x;
+    this.flashBig.angle = Math.atan2(this.eel.x-620, 140) * 180 / Math.PI + 30;
+
   },
 
   update: function() {
@@ -193,26 +191,34 @@ Game.prototype = {
   dealDamage : function() {
     var s = this.characters[this.prisonPosition].sounds[Math.floor(Math.random() * this.characters[this.prisonPosition].sounds.length)];
     //console.log(s);
-    this.sadistValue += 2;
-    if (this.sadistValue > 85) {
-      plauerWon = false;
-      game.state.start("Victory");
-  }
-    game.sound.play(s);
+
+    if (this.characters[this.prisonPosition].alive) {
+      this.sadistValue += 2;
+      game.sound.play(s);
+      this.characters[this.prisonPosition].health -= 1;
+      if (this.characters[this.prisonPosition].health < 0) {
+        this.killCharacter();
+      }
+    }
+
     console.log("deal damage to:" + this.characters[this.prisonPosition].name);
     this.characters[this.prisonPosition].sprite.play('shock', 1, false);
     this.eel.animations.play('strike', 5, false);
     this.flashBig.alpha = 1;
     this.eel.animations.currentAnim.onComplete.add(function() {this.eel.animations.play('wiggle', 5, true); this.flashBig.alpha = 0;},this);
-    this.characters[this.prisonPosition].health -= 1;
-    if (this.characters[this.prisonPosition].health < 0) {
-      this.killCharacter();
+    if (this.sadistValue > 85) {
+      plauerWon = false;
+      game.state.start("Victory");
     }
   },
 
   killCharacter : function() {
-    this.characters[this.prisonPosition].sprite.loadTexture('rip', 0);
-    this.characters[this.prisonPosition].alive = false;
+    if (this.characters[this.prisonPosition].alive) {
+      this.characters[this.prisonPosition].sprite.loadTexture('rip', 0);
+      this.characters[this.prisonPosition].sprite.scale.setTo(0.15);
+      this.characters[this.prisonPosition].sprite.y += 50;
+      this.characters[this.prisonPosition].alive = false;
+    }
     if (this.characters[this.prisonPosition] == this.guilty) {
       this.guilty.alive = false;
     }

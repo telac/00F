@@ -39,7 +39,7 @@ Loading.prototype = {
         game.load.image("lightGreen", "content/img/characters/green.png");
         game.load.image("purple", "content/img/characters/purple.png");
         game.load.image("lightRed", "content/img/characters/red.png");
-        game.load.image("rip", "content/img/characters/characterDead.png");
+        game.load.image("rip", "content/img/characters/corpse.png");
 
         //efektit
         game.load.image("cage", "content/img/misc/hakki.png");
@@ -70,6 +70,7 @@ Loading.prototype = {
         game.load.spritesheet("choose", "content/img/buttons/terminateSheet.png", 181, 160);
         game.load.spritesheet("direction", "content/img/buttons/direction.png", 358, 360);
         game.load.spritesheet("scientist", "content/img/characters/scientysts.png", 1122, 2920, 2);
+        game.load.spritesheet("granny", "content/img/characters/granny.png", 688, 1448, 2);
     },
 
     loadAudio: function() {

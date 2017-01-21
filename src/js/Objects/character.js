@@ -45,11 +45,13 @@ function Character(id) {
         this.sprite.scale.setTo(0.5);
         break;
       case 5:
-        this.name = 'purple';//female
+        this.name = 'granny';
         this.maxHealth = 20;
         this.sounds = ['4-01', '4-02', '4-03', '4-04', '4-05', '4-06', '4-07', '4-08', '4-09', '4-10', '4-11', '4-12', '4-13', '4-14', '4-15', '4-16', '4-17', '4-18', '4-19', '4-20'];
-        this.sprite = game.add.sprite(-1000,-1000, 'purple');
-        this.sprite.scale.setTo(0.5);
+        this.sprite = game.add.sprite(640, 300, 'granny');
+        this.sprite.animations.add('shock', [1, 0]);
+        this.sprite.animations.play('shock', 1, false);
+        this.sprite.scale.setTo(0.2);
         break;
       case 6:
         this.name = 'lightRed';//nosoundsyet
