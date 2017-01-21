@@ -18,6 +18,9 @@ Game.prototype = {
     this.eel.animations.play('wiggle', 5, true);
     this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
 
+    this.fish1 = game.add.sprite(100, 100, 'fish1');
+    this.fish2 = game.add.sprite(100, 100, 'fish2');
+
 
     this.eel.scale.setTo(0.3, 0.3);
     this.eel.anchor.setTo(0.5, 0.5);
