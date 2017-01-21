@@ -23,7 +23,10 @@ Loading.prototype = {
 
         game.load.image("enter-key", "content/enter-key-small.png");
         game.load.image('console', 'content/img/buttons/console.png');
-        game.load.image("walrus", "content/img/backgrounds/mursu.png");
+        game.load.image("walrus", "content/img/backgrounds/mursu1.png");
+        game.load.image("walrus1", "content/img/backgrounds/mursu2.png");
+        game.load.image("walrus2", "content/img/backgrounds/mursu3.png");
+        game.load.image("walrus3", "content/img/backgrounds/mursu4.png");
 
         // evat
         game.load.image("fin1", "content/img/misc/rapyla1.png");
