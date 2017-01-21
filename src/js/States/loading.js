@@ -97,7 +97,7 @@ Loading.prototype = {
     create: function() {
         this.addGameStates();
         window.setTimeout(function() {
-            game.state.start("Victory");
+            game.state.start("Game");
         }, 1000);
     },
 
