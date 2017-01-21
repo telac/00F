@@ -18,10 +18,17 @@ Game.prototype = {
     this.eel.animations.play('wiggle', 5, true);
     this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
 
+    this.bmd = game.add.bitmapData(game.width, game.height);
+  	this.bmd.addToWorld();
+  	//	Disables anti-aliasing when we draw sprites to the BitmapData
+  	this.bmd.smoothed = true;
 
     this.eel.scale.setTo(0.3, 0.3);
     this.eel.anchor.setTo(0.5, 0.5);
     this.prisonPosition = 2;
+
+    this.console = game.add.sprite(0, 0, 'console');
+    this.console.scale.setTo(1280/this.console.width, 720/this.console.height);
 
     //the victims of interrogative committee
     this.characters = [];
@@ -55,9 +62,9 @@ Game.prototype = {
     //console.log(this.characters);
 
     //buttons
-    this.shock = game.add.button(game.world.centerX, 550, 'shock', this.dealDamage, this);
-    this.shock.scale.setTo(0.5, 0.5);
-    this.shock.anchor.setTo(0.5, 0.5);
+    this.electrify = game.add.button(game.world.centerX, 635, 'electrify', this.dealDamage, this);
+    this.electrify.animations.add('electrify', [1, 0]);
+    this.electrify.anchor.setTo(0.5);
 
     this.leftButton = game.add.button(game.world.centerX - 100, 550, 'left', this.eelLeft, this);
     this.leftButton.scale.setTo(0.5, 0.5);
@@ -71,9 +78,9 @@ Game.prototype = {
     this.selectButton.scale.setTo(0.5, 0.5);
     this.selectButton.anchor.setTo(0.5, 0.5);
 
-    this.microfoneButton = game.add.button(50, 50, 'microfoni', this.playTheSound, this);
-    this.microfoneButton.scale.setTo(0.5, 0.5);
-    this.microfoneButton.anchor.setTo(0.5, 0.5);
+    this.microphoneButton = game.add.button(50, 50, 'microfoni', this.playTheSound, this);
+    this.microphoneButton.scale.setTo(0.7);
+    this.microphoneButton.anchor.setTo(0.5);
 
     // button definitions
     this.upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
@@ -116,6 +123,12 @@ Game.prototype = {
       this.selectTarget();
     }
 
+    this.bmd.clear();
+    this.bmd.ctx.beginPath();
+    this.bmd.ctx.arc(1110, 565, 100, 0, 2*Math.PI, true);
+    this.bmd.ctx.fillStyle = '#277309';
+    this.bmd.ctx.fill();
+    this.bmd.draw(this.characters[this.prisonPosition].sprite, 1110, 650);
   },
 
   eelLeft : function() {
@@ -133,8 +146,8 @@ Game.prototype = {
     //console.log(s);
     game.sound.play(s);
     console.log("deal damage to:" + this.characters[this.prisonPosition].name);
-    //this.agent.animations.play('shock', 5, false);
-    this.characters[this.prisonPosition].sprite.play('shock', 5, false);
+    this.characters[this.prisonPosition].sprite.play('shock', 1, false);
+    this.electrify.animations.play('electrify', 10, false);
     this.eel.animations.play('strike', 5, false);
     this.eel.animations.currentAnim.onComplete.add(function() {this.eel.animations.play('wiggle', 5, true);},this);
     this.characters[this.prisonPosition].health -= 1;

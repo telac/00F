@@ -22,6 +22,7 @@ Loading.prototype = {
         game.load.image("tutorial-1", "content/img/backgrounds/tutorial-1.png");
 
         game.load.image("enter-key", "content/enter-key-small.png");
+        game.load.image('console', 'content/img/buttons/console.png');
 
         // Characters
         game.load.spritesheet("eel", "content/img/characters/eelSheet.png",520,520,3);
@@ -51,6 +52,7 @@ Loading.prototype = {
         game.load.spritesheet("playermini", "content/sprite.png", 150, 150, 3);
         game.load.spritesheet("agent", "content/img/characters/agent01.png", 225, 580, 2);
         game.load.spritesheet("teen", "content/img/characters/teenager.png", 1600, 2899, 2);
+        game.load.spritesheet("electrify", "content/img/buttons/electrify.png", 110, 132, 2);
     },
 
     loadAudio: function() {
@@ -97,7 +99,7 @@ Loading.prototype = {
     create: function() {
         this.addGameStates();
         window.setTimeout(function() {
-            game.state.start("Victory");
+            game.state.start("Game");
         }, 1000);
     },
 
