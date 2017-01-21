@@ -194,6 +194,8 @@ Loading.prototype = {
         game.load.audio('5-19', 'content/audio/CHAR5/CHAR5_19.wav');
         game.load.audio('5-20', 'content/audio/CHAR5/CHAR5_20.wav');
 
+        game.load.audio("wilhelm", 'content/audio/wilhelm.ogg');
+
         game.load.audio('6-01', 'content/audio/CHAR6/CHAR6_01.wav');
         game.load.audio('6-02', 'content/audio/CHAR6/CHAR6_02.wav');
         game.load.audio('6-03', 'content/audio/CHAR6/CHAR6_03.wav');

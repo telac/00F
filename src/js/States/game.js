@@ -121,6 +121,11 @@ Game.prototype = {
     this.leftKey.onDown.add(this.eelLeft, this);
     this.rightKey.onDown.add(this.eelRight, this);
     this.downKey.onDown.add(this.dealDamage, this);
+
+    //text
+    this.heartRate = 60;
+    this.health = game.add.text(1190, 655, this.heartRate, {font: '30px Orbitron', fill: '#cc3300'});
+    this.health.angle = -19;
   },
 
   backgroundAnimation : function() {
@@ -166,6 +171,12 @@ Game.prototype = {
   },
 
   update: function() {
+    if (this.characters[this.prisonPosition].alive && this.characters[this.prisonPosition].health != 0) {
+    this.health.setText(Math.floor(this.characters[this.prisonPosition].heartRate));
+    }
+    else {
+      this.health.setText('0');
+    }
     this.meter.angle = this.sadistValue;
     this.backgroundAnimation();
     for(var i = 0; i <= 4; i++) {
@@ -191,16 +202,16 @@ Game.prototype = {
   dealDamage : function() {
     var s = this.characters[this.prisonPosition].sounds[Math.floor(Math.random() * this.characters[this.prisonPosition].sounds.length)];
     //console.log(s);
-
     if (this.characters[this.prisonPosition].alive) {
-      this.sadistValue += 2;
+      this.sadistValue += 3;
       game.sound.play(s);
       this.characters[this.prisonPosition].health -= 1;
-      if (this.characters[this.prisonPosition].health < 0) {
+      if (this.characters[this.prisonPosition].health < 1) {
         this.killCharacter();
       }
     }
 
+    this.characters[this.prisonPosition].heartRate = 60 +  10 *(this.characters[this.prisonPosition].maxHealth / this.characters[this.prisonPosition].health);
     console.log("deal damage to:" + this.characters[this.prisonPosition].name);
     this.characters[this.prisonPosition].sprite.play('shock', 1, false);
     this.eel.animations.play('strike', 5, false);
@@ -222,6 +233,7 @@ Game.prototype = {
     if (this.characters[this.prisonPosition] == this.guilty) {
       this.guilty.alive = false;
     }
+    game.sound.play("wilhelm");
   },
 
   shuffle : function(array) {
