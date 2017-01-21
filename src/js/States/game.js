@@ -18,8 +18,11 @@ Game.prototype = {
     this.eel.animations.play('wiggle', 5, true);
     this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
 
-    this.fish1 = game.add.sprite(100, 100, 'fish1');
-    this.fish2 = game.add.sprite(100, 100, 'fish2');
+    // ka le
+    this.fish1 = game.add.sprite(640, 300, 'fish1');
+    this.fish2 = game.add.sprite(640, 120, 'fish2');
+    this.fish1.scale.setTo(0.3); this.fish2.scale.setTo(0.3);
+    this.fish1.anchor.setTo(0.5, 0.5); this.fish2.anchor.setTo(0.5,0.5);
 
 
     this.eel.scale.setTo(0.3, 0.3);
@@ -91,25 +94,30 @@ Game.prototype = {
     this.downKey.onDown.add(this.dealDamage, this);
   },
 
-  eelAnimation : function() {
+  backgroundAnimation : function() {
     this.mod = 1200;
     this.angle = Math.sin(this.time.now/this.mod);
-    this.angle_y = Math.sin(this.time.now/(this.mod/6));
+    this.fishAngle = Math.sin(this.time.now/(this.mod*8));
+    this.cosFish = Math.cos(this.time.now/(this.mod*8));
+    this.angle_y = Math.sin(this.time.now/(this.mod*12));
     this.angle_2 = -Math.cos(this.time.now/this.mod);
     if (this.angle_2 < 0) {
       this.eel.scale.setTo(-0.3, 0.3);
+
     }
     else {
       this.eel.scale.setTo(0.3, 0.3);
+
     }
+
     this.eel.y  = 120 - 6 * this.angle_y;
     this.eel.x = 640 + 150 * this.angle;
 
-
   },
 
+
   update: function() {
-    this.eelAnimation();
+    this.backgroundAnimation();
     for(var i = 0; i <= 4; i++) {
         //this.characters[i].sprite.x = +400 + (i)*400 - this.prisonPosition * 400;
         game.add.tween(this.characters[i].sprite).to({ x: 640 + (i)*640 - this.prisonPosition * 640 }, 50, Phaser.Easing.Linear.InOut, true, 0.1, 1000, true);

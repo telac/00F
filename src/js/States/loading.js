@@ -35,8 +35,8 @@ Loading.prototype = {
         game.load.image("rip", "content/img/characters/characterDead.png");
 
         // tausteoliot ja kalet
-        game.load.image("fish1", "content/img/characters/kala1.png");
-        game.load.image("fish2", "content/img/characters/kala2.png");
+        game.load.image("fish1", "content/img/misc/kala1.png");
+        game.load.image("fish2", "content/img/misc/kala2.png");
 
 
         // Buttons
