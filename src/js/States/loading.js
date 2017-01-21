@@ -19,6 +19,7 @@ Loading.prototype = {
         game.load.image("chosenWrongAlive", "content/img/backgrounds/chosenwrongalive.png");
         game.load.image("chosenWrongDead", "content/img/backgrounds/chosenwrongdead.png");
         game.load.image("chosenRightDead", "content/img/backgrounds/chosenrightdead.png");
+        game.load.image("backgroundOfDoom", "content/img/backgrounds/maisemaDOOM.png");
         game.load.image("menuscreen", "content/menu.png");
         game.load.image("tutorial-1", "content/img/backgrounds/tutorial-1.png");
 
@@ -36,6 +37,10 @@ Loading.prototype = {
         game.load.image("lightRed", "content/img/characters/red.png");
         game.load.image("rip", "content/img/characters/characterDead.png");
 
+        //efektit
+        game.load.image("cage", "content/img/misc/hakki.png");
+        game.load.image("flashBig", "content/img/misc/isoSalama.png");
+        game.load.image("flashSmall", "content/img/misc/pikkuSalama.png");
         // tausteoliot ja kalet
         game.load.image("fish1", "content/img/misc/kala1.png");
         game.load.image("fish2", "content/img/misc/kala2.png");

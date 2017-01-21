@@ -1,4 +1,7 @@
 function Character(id) {
+    this.cage = game.add.sprite(-1000,-1000, 'cage');
+    this.cage.scale.setTo(0.5);
+    this.cage.anchor.setTo(0.5,0.5);
     switch(id) {
       case 0:
         this.name = 'agent';
@@ -59,4 +62,5 @@ function Character(id) {
     this.health = this.maxHealth;
     this.alive = true;
     this.sprite.anchor.setTo(0.5);
+
 }
