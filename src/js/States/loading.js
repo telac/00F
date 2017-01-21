@@ -51,6 +51,8 @@ Loading.prototype = {
         game.load.image("sky1", "content/img/misc/skyhouse1.png");
         game.load.image("sky2", "content/img/misc/skyscraper1.png");
         game.load.image("sky3", "content/img/misc/skypiercer1.png");
+        game.load.image("meter", "content/img/buttons/mittarikeppi.png")
+        game.load.image("meterButton", "content/img/buttons/meterButton.png")
     },
 
     loadSpritesheets: function() {

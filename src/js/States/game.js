@@ -9,7 +9,7 @@ Game.prototype = {
     }, 10);
     playerWon = false;
     chosenAlive = true;
-
+    this.sadistValue = -90;
     this.background = game.add.sprite(0, 0, 'background');
     // the ankerias
     this.eel = game.add.sprite(640, 120, 'eel');
@@ -69,7 +69,7 @@ Game.prototype = {
     }
     //console.log(this.characters);
 
-    //buttons
+    //HUD!
     this.electrify = game.add.button(game.world.centerX, 635, 'electrify', this.dealDamage, this, 0,0, 1);
     this.electrify.anchor.setTo(0.5);
 
@@ -88,6 +88,13 @@ Game.prototype = {
     this.microphoneButton = game.add.button(50, 50, 'microfoni', this.playTheSound, this);
     this.microphoneButton.scale.setTo(0.7);
     this.microphoneButton.anchor.setTo(0.5);
+
+    this.meter = game.add.sprite(175,695, 'meter');
+    this.meter.scale.setTo(0.4);
+    this.meter.anchor.setTo(0.5, 1);
+
+    this.meterButton = game.add.sprite(140, 665, 'meterButton');
+    this.meterButton.scale.setTo(0.5);
 
     // button definitions
     this.upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
@@ -125,6 +132,7 @@ Game.prototype = {
 
 
   update: function() {
+    this.meter.angle = this.sadistValue;
     this.backgroundAnimation();
     for(var i = 0; i <= 4; i++) {
         //this.characters[i].sprite.x = +400 + (i)*400 - this.prisonPosition * 400;
@@ -156,6 +164,11 @@ Game.prototype = {
   dealDamage : function() {
     var s = this.characters[this.prisonPosition].sounds[Math.floor(Math.random() * this.characters[this.prisonPosition].sounds.length)];
     //console.log(s);
+    this.sadistValue += 2;
+    if (this.sadistValue > 85) {
+      plauerWon = false;
+      game.state.start("Victory");
+  }
     game.sound.play(s);
     console.log("deal damage to:" + this.characters[this.prisonPosition].name);
     this.characters[this.prisonPosition].sprite.play('shock', 1, false);
