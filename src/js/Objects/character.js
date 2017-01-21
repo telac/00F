@@ -63,6 +63,7 @@ function Character(id) {
     }
     this.health = this.maxHealth;
     this.alive = true;
+    this.heartRate = 60;
     this.sprite.anchor.setTo(0.5);
 
 }

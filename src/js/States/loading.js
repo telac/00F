@@ -188,6 +188,8 @@ Loading.prototype = {
         game.load.audio('5-18', 'content/audio/CHAR5/CHAR5_18.wav');
         game.load.audio('5-19', 'content/audio/CHAR5/CHAR5_19.wav');
         game.load.audio('5-20', 'content/audio/CHAR5/CHAR5_20.wav');
+
+        game.load.audio("wilhelm", 'content/audio/wilhelm.ogg');
     },
 
     loadFonts: function () {
