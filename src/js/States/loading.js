@@ -41,7 +41,7 @@ Loading.prototype = {
         game.load.image("target", "content/img/buttons/target.png");
         game.load.image("microfoni", "content/img/buttons/microfoni.png");
 
-        game.load.image("wave", "content/wave.png");
+        game.load.image("wave", "content/img/misc/aalto.png");
         game.load.image("sky1", "content/img/misc/skyhouse1.png");
         game.load.image("sky2", "content/img/misc/skyscraper1.png");
         game.load.image("sky3", "content/img/misc/skypiercer1.png");
@@ -97,7 +97,7 @@ Loading.prototype = {
     create: function() {
         this.addGameStates();
         window.setTimeout(function() {
-            game.state.start("Game");
+            game.state.start("Victory");
         }, 1000);
     },
 

@@ -28,15 +28,6 @@ Victory.prototype = {
         }
         this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
 
-
-        // Enter key sprite
-        this.enterKeySprite = game.add.sprite(720, 510, 'enter-key');
-        game.add.tween(this.enterKeySprite).
-            to({y: '+10'}, 800, Phaser.Easing.Sinusoidal.InOut, true, delay = 0, repeat = -1, yoyo = true);
-
-        var enterkey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
-        enterkey.onDown.add(this.backToMenu, this);
-
         this.buildingsBack = [];
         var x = 100;
         while (x < 1130) {
@@ -62,8 +53,9 @@ Victory.prototype = {
           this.buildingsBack.push(building);
         }
 
-        this.wave = game.add.sprite(0, 370, 'wave');
+        this.wave = game.add.sprite(0, 490, 'wave');
         this.wave.anchor.setTo(0.5);
+        this.wave.scale.setTo(-1, 1);
 
         this.buildingsFront = [];
         x = 200;
@@ -91,11 +83,32 @@ Victory.prototype = {
         }
 
         this.x = 0;
+
+        // Enter key sprite
+        this.enterKeySprite = game.add.sprite(1100, 100, 'enter-key');
+        game.add.tween(this.enterKeySprite).
+            to({y: '+10'}, 800, Phaser.Easing.Sinusoidal.InOut, true, delay = 0, repeat = -1, yoyo = true);
+
+        var enterkey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+        enterkey.onDown.add(this.backToMenu, this);
     },
 
     update: function() {
           this.wave.x = this.x;
           this.x++;
+
+          for (var i = 0; i <= this.buildingsBack.length-1; i++) {
+            if (this.buildingsBack[i].x < this.x + 100 && i != 0 && i != 7) {
+              this.buildingsBack[i].y++;
+              this.buildingsBack[i].x += Math.round(Math.random()*2) - 1;
+            }
+          }
+          for (var i = 0; i <= this.buildingsFront.length-1; i++) {
+            if (this.buildingsFront[i].x < this.x + 200 && i != 2 && i != 5) {
+              this.buildingsFront[i].y++;
+              this.buildingsFront[i].x += Math.round(Math.random()*2) - 1;
+            }
+          }
     },
 
     backToMenu: function() {
