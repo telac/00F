@@ -22,6 +22,9 @@ Tutorial.prototype = {
         this.currentPage = 0;
         this.setImage(this.pageNames[0]);
 
+
+
+
         this.enterKey = game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
         this.enterKey.onDown.add(function() {
             this.currentPage += 1;

@@ -11,9 +11,13 @@ Game.prototype = {
 
     this.background = game.add.sprite(0, 0, 'background');
     // the ankerias
-    this.eel = game.add.sprite(400, 120, 'eel');
-    this.eel.animations.add('wiggle');
+    this.eel = game.add.sprite(640, 120, 'eel');
+    this.eel.animations.add('wiggle', [0,0,0,1]);
+    this.eel.animations.add('strike', [0,2]);
     this.eel.animations.play('wiggle', 5, true);
+    this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
+
+
     this.eel.scale.setTo(0.3, 0.3);
     this.eel.anchor.setTo(0.5, 0.5);
     this.prisonPosition = 2;
@@ -47,14 +51,10 @@ Game.prototype = {
     for (var i = 0; i <= 4; i++) {
       if (this.characters[i].name != this.guilty.name) {
         this.characters[i].sounds.pop();
+        this.characters[i].sprite.x = +640 + (i)*640 - this.prisonPosition * 640;
       }
     }
     //console.log(this.characters);
-
-    //scales
-    // this.lightBlue.scale.setTo(0.5, 0.5);
-    // this.darkBlue.scale.setTo(0.5, 0.5);
-    // this.green.scale.setTo(0.5, 0.5);
 
     //buttons
     this.shock = game.add.button(game.world.centerX, 550, 'shock', this.dealDamage, this);
@@ -102,7 +102,7 @@ Game.prototype = {
       this.eel.scale.setTo(0.3, 0.3);
     }
     this.eel.y  = 120 - 6 * this.angle_y;
-    this.eel.x = 400 + 150 * this.angle;
+    this.eel.x = 640 + 150 * this.angle;
 
 
   },
@@ -110,12 +110,12 @@ Game.prototype = {
   update: function() {
     this.eelAnimation();
     for(var i = 0; i <= 4; i++) {
-        this.characters[i].sprite.x = +400 + (i)*400 - this.prisonPosition * 400;
+        //this.characters[i].sprite.x = +400 + (i)*400 - this.prisonPosition * 400;
+        game.add.tween(this.characters[i].sprite).to({ x: 640 + (i)*640 - this.prisonPosition * 640 }, 50, Phaser.Easing.Linear.InOut, true, 0.1, 1000, true);
     }
-    //this.eel.x = 120 + this.prisonPosition * 140;
 
     if (this.enterKey.isDown) {
-      //game.state.start("Victory");
+      this.selectTarget();
     }
 
   },
@@ -135,6 +135,11 @@ Game.prototype = {
     //console.log(s);
     game.sound.play(s);
     console.log("deal damage to:" + this.characters[this.prisonPosition].name);
+    //this.agent.animations.play('shock', 5, false);
+    this.characters[this.prisonPosition].sprite.play('shock', 5, false);
+    this.eel.x = 640; this.eel.y = 150;
+    this.eel.animations.play('strike', 5, false);
+    this.eel.animations.currentAnim.onComplete.add(function() {this.eel.animations.play('wiggle', 5, true);},this);
   },
 
   shuffle : function(array) {
@@ -142,7 +147,6 @@ Game.prototype = {
     while (0 !== currentIndex) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
-
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;

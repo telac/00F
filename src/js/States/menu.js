@@ -17,18 +17,6 @@ Menu.prototype = {
 
         this.background = game.add.sprite(0, 0, 'menuscreen');
 
-        // Pentagram
-        this.gram = game.add.sprite(game.world.centerX, 0.5 * game.world.centerY, "grammi");
-        this.gram.anchor.setTo(0.5, 0.46);
-
-        // Goat head sprite
-        this.goathead = game.add.sprite(game.world.centerX, 0.5 * game.world.centerY, "goaty");
-        this.goathead.anchor.set(0.5);
-        this.goathead.scale.setTo(0.5);
-        this.goathead.angle = -5.0;
-        this.goatheadTween = game.add.tween(this.goathead);
-        this.goatheadTween.to({angle: 5}, 2000, Phaser.Easing.Sinusoidal.InOut, true, delay = 0, repeat = -1, yoyo = true);
-
         // Enter key sprite
         this.keySprite = game.add.sprite(game.world.centerX, 1.5 * game.world.centerY, "enter-key");
         this.keySprite.anchor.set(0.5);
@@ -41,7 +29,6 @@ Menu.prototype = {
     },
 
     update: function() {
-        this.gram.angle += 0.1;
         // Pressing the enter key starts the game
         if (this.enterKey.isDown) {
             game.add

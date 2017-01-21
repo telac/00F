@@ -13,18 +13,16 @@ Loading.prototype = {
 
     loadImages: function () {
         // Backgrounds
-        game.load.image('background', 'content/img/backgrounds/vesitausta.png');
+        game.load.image('background', 'content/img/backgrounds/uusivesitausta.png');
         game.load.image("winscreen", "content/winscreen.png");
         game.load.image("losescreen", "content/ulose.png");
         game.load.image("menuscreen", "content/menu.png");
-        game.load.image("tutorial-1", "content/tutorial.png");
+        game.load.image("tutorial-1", "content/img/backgrounds/tutorial-1.png");
 
-        game.load.image("goaty", "content/goaty-small.png");
-        game.load.image("grammi", "content/grammi.png");
         game.load.image("enter-key", "content/enter-key-small.png");
 
         // Characters
-        game.load.spritesheet("eel", "content/img/characters/eelSheet.png",520,520,2);
+        game.load.spritesheet("eel", "content/img/characters/eelSheet.png",520,520,3);
         game.load.image("lightBlue", "content/img/characters/blue.png");
         game.load.image("darkBlue", "content/img/characters/darkblue.png");
         game.load.image("darkGreen", "content/img/characters/darkgreen.png");
@@ -44,6 +42,7 @@ Loading.prototype = {
 
     loadSpritesheets: function() {
         game.load.spritesheet("playermini", "content/sprite.png", 150, 150, 3);
+        game.load.spritesheet("agent", "content/img/characters/agent01.png", 225, 580, 2);
     },
 
     loadAudio: function() {

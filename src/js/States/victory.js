@@ -16,7 +16,6 @@ Victory.prototype = {
             game.world.alpha = 1.0;
         }, 10);
 
-        console.log(playerWon);
         if (playerWon) {
           this.background = game.add.sprite(0, 0, "winscreen");
         } else {
