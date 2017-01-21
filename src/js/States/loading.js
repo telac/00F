@@ -9,6 +9,7 @@ Loading.prototype = {
         game.load.script("VictoryScript", "js/States/victory.js");
 
         game.load.script("character", "js/Objects/character.js");
+        game.load.script("fish", "js/Objects/fish.js");
     },
 
     loadImages: function () {
@@ -39,7 +40,6 @@ Loading.prototype = {
         game.load.image("fish1", "content/img/misc/kala1.png");
         game.load.image("fish2", "content/img/misc/kala2.png");
 
-
         // Buttons
         game.load.image("shock", "content/img/buttons/electrify1.png");
         game.load.image("left", "content/img/buttons/left.png");
@@ -53,6 +53,9 @@ Loading.prototype = {
         game.load.image("sky3", "content/img/misc/skypiercer1.png");
         game.load.image("meter", "content/img/buttons/mittarikeppi.png")
         game.load.image("meterButton", "content/img/buttons/meterButton.png")
+        game.load.image("orangeLight", "content/img/buttons/oranssivalo.png");
+        game.load.image("redLight", "content/img/buttons/punainenvalo.png");
+
     },
 
     loadSpritesheets: function() {

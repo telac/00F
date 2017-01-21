@@ -18,18 +18,10 @@ Game.prototype = {
     this.eel.animations.play('wiggle', 5, true);
     this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
 
-    // kale
-    this.fish1 = game.add.sprite(640, 300, 'fish1');
-    this.fish2 = game.add.sprite(640, 120, 'fish2');
-    this.fish1.scale.setTo(0.3); this.fish2.scale.setTo(0.3);
-    this.fish1.anchor.setTo(0.5, 0.5); this.fish2.anchor.setTo(0.5,0.5);
-
-
     this.bmd = game.add.bitmapData(game.width, game.height);
   	this.bmd.addToWorld();
   	//	Disables anti-aliasing when we draw sprites to the BitmapData
   	this.bmd.smoothed = true;
-
 
     this.eel.scale.setTo(0.3, 0.3);
     this.eel.anchor.setTo(0.5, 0.5);
@@ -37,6 +29,12 @@ Game.prototype = {
 
     this.console = game.add.sprite(0, 0, 'console');
     this.console.scale.setTo(1280/this.console.width, 720/this.console.height);
+
+    this.fishes = [];
+    for (var i = 0; i <= 29; i++) {
+      this.fishes.push(new Fish());
+      this.fishes[i].tpToMid();
+    }
 
     //the victims of interrogative committee
     this.characters = [];
@@ -95,6 +93,15 @@ Game.prototype = {
 
     this.meterButton = game.add.sprite(140, 665, 'meterButton');
     this.meterButton.scale.setTo(0.5);
+    this.orangeLight = game.add.sprite(33, 607, "orangeLight");
+    this.orangeLight.scale.setTo(0.45);
+    this.orangeLight.anchor.setTo(0.5);
+
+    this.redLight = game.add.sprite(33, 647, "redLight");
+    this.redLight.scale.setTo(0.45);
+    this.redLight.anchor.setTo(0.5);
+    this.redLight.alpha = 0;
+
 
     // button definitions
     this.upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
@@ -112,36 +119,17 @@ Game.prototype = {
   backgroundAnimation : function() {
     this.mod = 1200;
     this.angle = Math.sin(this.time.now/this.mod);
-    this.fishAngle = Math.sin(this.time.now/(this.mod*8));
-    this.cosFish = Math.cos(this.time.now/(this.mod*8));
     this.angle_y = Math.sin(this.time.now/(this.mod*12));
     this.angle_2 = -Math.cos(this.time.now/this.mod);
+
     if (this.angle_2 < 0) {
       this.eel.scale.setTo(-0.3, 0.3);
-
-    }
-    else {
+    } else {
       this.eel.scale.setTo(0.3, 0.3);
-
     }
 
     this.eel.y  = 120 - 6 * this.angle_y;
     this.eel.x = 640 + 150 * this.angle;
-
-  },
-
-
-  update: function() {
-    this.meter.angle = this.sadistValue;
-    this.backgroundAnimation();
-    for(var i = 0; i <= 4; i++) {
-        //this.characters[i].sprite.x = +400 + (i)*400 - this.prisonPosition * 400;
-        game.add.tween(this.characters[i].sprite).to({ x: 640 + (i)*640 - this.prisonPosition * 640 }, 50, Phaser.Easing.Linear.InOut, true, 0.1, 1000, true);
-    }
-
-    if (this.enterKey.isDown) {
-      this.selectTarget();
-    }
 
     this.bmd.clear();
     this.bmd.ctx.beginPath();
@@ -149,6 +137,25 @@ Game.prototype = {
     this.bmd.ctx.fillStyle = '#277309';
     this.bmd.ctx.fill();
     this.bmd.draw(this.characters[this.prisonPosition].sprite, 1110, 650);
+
+    for (var i = 0; i <= 29; i++) {
+      this.fishes[i].move();
+    }
+
+    this.orangeLight.alpha = Math.sin(this.time.now/250);
+
+  },
+
+  update: function() {
+    this.meter.angle = this.sadistValue;
+    this.backgroundAnimation();
+    for(var i = 0; i <= 4; i++) {
+        game.add.tween(this.characters[i].sprite).to({ x: 640 + (i)*640 - this.prisonPosition * 640 }, 50, Phaser.Easing.Linear.InOut, true, 0.1, 1000, true);
+    }
+
+    if (this.enterKey.isDown) {
+      this.selectTarget();
+    }
   },
 
   eelLeft : function() {
