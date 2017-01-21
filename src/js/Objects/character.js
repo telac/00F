@@ -6,7 +6,7 @@ function Character(id) {
       case 0:
         this.name = 'agent';
         this.maxHealth = 10;
-        this.sounds = ['a-01', 'a-02', 'a-03', 'a-04'];
+        this.sounds = ['a-01', 'a-02', 'a-03', 'a-04']; //replace with 6-nn
         this.sprite = game.add.sprite(640, 300, 'agent');
         this.sprite.animations.add('shock');
         this.sprite.animations.play('shock', 1, false);
@@ -15,7 +15,7 @@ function Character(id) {
       case 1:
         this.name = 'teen';
         this.maxHealth = 15;
-        this.sounds = ['b-01', 'b-02', 'b-03', 'b-04'];
+        this.sounds = ['1-01', '1-02', '1-03', '1-04', '1-05', '1-06', '1-07', '1-08', '1-09', '1-10', '1-11', '1-12', '1-13', '1-14', '1-15', '1-16', '1-17', '1-18', '1-19', '1-20'];
         this.sprite = game.add.sprite(640, 300, 'teen');
         this.sprite.animations.add('shock', [1, 0]);
         this.sprite.animations.play('shock', 1, false);
@@ -24,7 +24,7 @@ function Character(id) {
       case 2:
         this.name = 'scientist';
         this.maxHealth = 20;
-        this.sounds = ['c-01', 'c-02', 'c-03', 'c-04'];
+        this.sounds = ['3-01', '3-02', '3-03', '3-04', '3-05', '3-06', '3-07', '3-08', '3-09', '3-10', '3-11', '3-12', '3-13', '3-14', '3-15', '3-16', '3-17', '3-18', '3-19', '3-20'];
         this.sprite = game.add.sprite(640, 300, 'scientist');
         this.sprite.animations.add('shock', [1, 0]);
         this.sprite.animations.play('shock', 1, false);
