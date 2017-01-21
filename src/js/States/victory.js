@@ -16,19 +16,12 @@ Victory.prototype = {
             game.world.alpha = 1.0;
         }, 10);
 
-        this.background = game.add.sprite(0, 0, "winscreen");
-        this.gram = game.add.sprite(game.width/2, game.height*3/4, "grammi");
-        this.gram.anchor.setTo(0.5, 0.46);
-        this.gram.scale.setTo(0.5, 0.5);
-        this.gram.alpha = 0.75;
-
-        // Goat head sprite
-        this.goathead = game.add.sprite(game.world.centerX, 0.5 * game.world.centerY, "goaty");
-        this.goathead.anchor.set(0.5);
-        this.goathead.scale.setTo(0.5);
-        this.goathead.angle = -5.0;
-        this.goatheadTween = game.add.tween(this.goathead);
-        this.goatheadTween.to({angle: 5}, 2000, Phaser.Easing.Sinusoidal.InOut, true, delay = 0, repeat = -1, yoyo = true);
+        console.log(playerWon);
+        if (playerWon) {
+          this.background = game.add.sprite(0, 0, "winscreen");
+        } else {
+          this.background = game.add.sprite(0, 0, "losescreen");
+        }
 
         // Enter key sprite
         this.enterKeySprite = game.add.sprite(720, 510, 'enter-key');

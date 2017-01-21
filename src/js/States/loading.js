@@ -15,6 +15,7 @@ Loading.prototype = {
         // Backgrounds
         game.load.image('background', 'content/img/backgrounds/vesitausta.png');
         game.load.image("winscreen", "content/winscreen.png");
+        game.load.image("losescreen", "content/ulose.png");
         game.load.image("menuscreen", "content/menu.png");
         game.load.image("tutorial-1", "content/tutorial.png");
 

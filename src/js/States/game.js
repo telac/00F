@@ -1,10 +1,13 @@
 var Game = function () {};
 
+var playerWon = false;
+
 Game.prototype = {
   create: function() {
     window.setTimeout(function() {
         game.world.alpha = 1.0;
     }, 10);
+    playerWon = false;
 
     this.background = game.add.sprite(0, 0, 'background');
 
@@ -92,7 +95,7 @@ Game.prototype = {
     //this.eel.x = 120 + this.prisonPosition * 140;
 
     if (this.enterKey.isDown) {
-      game.state.start("Victory");
+      //game.state.start("Victory");
     }
 
   },
@@ -129,6 +132,10 @@ Game.prototype = {
 
   selectTarget : function() {
     console.log("select target:" + this.characters[this.prisonPosition].name);
+    if (this.characters[this.prisonPosition] == this.guilty) {
+      playerWon = true;
+    }
+    game.state.start("Victory");
   },
 
   playTheSound : function() {
