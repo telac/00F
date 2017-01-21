@@ -1,10 +1,14 @@
 function Character(id) {
     switch(id) {
       case 0:
-        this.name = 'lightBlue';
+        this.name = 'agent';
         this.maxHealth = 10;
         this.sounds = ['a-01', 'a-02', 'a-03', 'a-04'];
-        this.sprite = game.add.sprite(-1000,-1000, 'lightBlue');
+        //this.sprite = game.add.sprite(-1000,-1000, 'lightBlue');
+        this.sprite = game.add.sprite(640, 300, 'agent');
+        this.sprite.animations.add('shock');
+        this.sprite.animations.play('shock', 1, false);
+
         break;
       case 1:
         this.name = 'darkBlue';
@@ -46,6 +50,6 @@ function Character(id) {
         console.log("ya u don fucked up");
     }
     this.health = this.maxHealth;
-    this.sprite.scale.setTo(1);
+    this.sprite.scale.setTo(0.5);
     this.sprite.anchor.setTo(0.5);
 }

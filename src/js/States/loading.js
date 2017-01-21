@@ -13,7 +13,7 @@ Loading.prototype = {
 
     loadImages: function () {
         // Backgrounds
-        game.load.image('background', 'content/img/backgrounds/vesitausta.png');
+        game.load.image('background', 'content/img/backgrounds/uusivesitausta.png');
         game.load.image("winscreen", "content/winscreen.png");
         game.load.image("losescreen", "content/ulose.png");
         game.load.image("menuscreen", "content/menu.png");
@@ -44,6 +44,7 @@ Loading.prototype = {
 
     loadSpritesheets: function() {
         game.load.spritesheet("playermini", "content/sprite.png", 150, 150, 3);
+        game.load.spritesheet("agent", "content/img/characters/agent01.png", 225, 580, 2);
     },
 
     loadAudio: function() {
