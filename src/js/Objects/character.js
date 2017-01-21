@@ -38,7 +38,7 @@ function Character(id) {
         this.sprite.scale.setTo(0.5);
         break;
       case 4:
-        this.name = 'lightGreen';//female
+        this.name = 'lightGreen'; // female
         this.maxHealth = 20;
         this.sounds = ['2-01', '2-02', '2-03', '2-04', '2-05', '2-06', '2-07', '2-08', '2-09', '2-10', '2-11', '2-12', '2-13', '2-14', '2-15', '2-16', '2-17', '2-18', '2-19', '2-20'] ;
         this.sprite = game.add.sprite(-1000,-1000, 'lightGreen');
@@ -54,11 +54,13 @@ function Character(id) {
         this.sprite.scale.setTo(0.2);
         break;
       case 6:
-        this.name = 'lightRed';//nosoundsyet
+        this.name = 'robot'; // makerobotsounds
         this.maxHealth = 20;
         this.sounds = ['a-01', 'a-02', 'a-03', 'a-04'];
-        this.sprite = game.add.sprite(-1000,-1000, 'lightRed');
-        this.sprite.scale.setTo(0.5);
+        this.sprite = game.add.sprite(640, 300, 'robot');
+        this.sprite.animations.add('shock', [1, 0]);
+        this.sprite.animations.play('shock', 1, false);
+        this.sprite.scale.setTo(0.75);
         break;
       default:
         console.log("ya u don fucked up");
@@ -67,5 +69,4 @@ function Character(id) {
     this.alive = true;
     this.heartRate = 60;
     this.sprite.anchor.setTo(0.5);
-
 }
