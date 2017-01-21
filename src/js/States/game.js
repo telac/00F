@@ -18,7 +18,7 @@ Game.prototype = {
     this.eel.animations.play('wiggle', 5, true);
     this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
 
-    // ka le
+    // kale
     this.fish1 = game.add.sprite(640, 300, 'fish1');
     this.fish2 = game.add.sprite(640, 120, 'fish2');
     this.fish1.scale.setTo(0.3); this.fish2.scale.setTo(0.3);
@@ -70,19 +70,18 @@ Game.prototype = {
     //console.log(this.characters);
 
     //buttons
-    this.electrify = game.add.button(game.world.centerX, 635, 'electrify', this.dealDamage, this);
-    this.electrify.animations.add('electrify', [1, 0]);
+    this.electrify = game.add.button(game.world.centerX, 635, 'electrify', this.dealDamage, this, 0,0, 1);
     this.electrify.anchor.setTo(0.5);
 
-    this.leftButton = game.add.button(game.world.centerX - 100, 550, 'left', this.eelLeft, this);
-    this.leftButton.scale.setTo(0.5, 0.5);
+    this.leftButton = game.add.button(game.world.centerX - 120, 625, 'direction', this.eelLeft, this,1,1,0);
+    this.leftButton.scale.setTo(0.3, 0.3);
     this.leftButton.anchor.setTo(0.5, 0.5);
 
-    this.rightButton = game.add.button(game.world.centerX + 100, 550, 'right', this.eelRight, this);
-    this.rightButton.scale.setTo(0.5, 0.5);
+    this.rightButton = game.add.button(game.world.centerX + 120, 625, 'direction', this.eelRight  , this,1,1,0);
+    this.rightButton.scale.setTo(-0.3, 0.3);
     this.rightButton.anchor.setTo(0.5, 0.5);
 
-    this.selectButton = game.add.button(game.world.centerX + 350, 550, 'target', this.selectTarget, this);
+    this.selectButton = game.add.button(game.world.centerX + 318, 663, 'choose', this.selectTarget, this,0 , 1);
     this.selectButton.scale.setTo(0.5, 0.5);
     this.selectButton.anchor.setTo(0.5, 0.5);
 
@@ -160,7 +159,6 @@ Game.prototype = {
     game.sound.play(s);
     console.log("deal damage to:" + this.characters[this.prisonPosition].name);
     this.characters[this.prisonPosition].sprite.play('shock', 1, false);
-    this.electrify.animations.play('electrify', 10, false);
     this.eel.animations.play('strike', 5, false);
     this.eel.animations.currentAnim.onComplete.add(function() {this.eel.animations.play('wiggle', 5, true);},this);
     this.characters[this.prisonPosition].health -= 1;
