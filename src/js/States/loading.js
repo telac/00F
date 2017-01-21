@@ -58,7 +58,10 @@ Loading.prototype = {
         game.load.spritesheet("playermini", "content/sprite.png", 150, 150, 3);
         game.load.spritesheet("agent", "content/img/characters/agent01.png", 225, 580, 2);
         game.load.spritesheet("teen", "content/img/characters/teenager.png", 1600, 2899, 2);
-        game.load.spritesheet("electrify", "content/img/buttons/electrify.png", 110, 132, 2);
+        game.load.spritesheet("electrify", "content/img/buttons/electrify.png", 110, 132);
+        game.load.spritesheet("choose", "content/img/buttons/terminateSheet.png", 181, 160);
+        game.load.spritesheet("direction", "content/img/buttons/direction.png", 358, 360);
+
     },
 
     loadAudio: function() {
