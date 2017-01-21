@@ -18,13 +18,13 @@ Victory.prototype = {
         if (playerWon && chosenAlive) {
           this.background = game.add.sprite(0, 0, "backgroundOfDoom");
         } else if (playerWon && !chosenAlive) {
-          this.background = game.add.sprite(0, 0, "chosenRightDead");
+          this.background = game.add.sprite(0, 0, "backgroundOfNotDoom");
         }
         else if (!playerWon && chosenAlive) {
-          this.background = game.add.sprite(0,0,"chosenWrongAlive");
+          this.background = game.add.sprite(0,0,"backgroundOfNotDoom");
         }
         else {
-          this.background = game.add.sprite(0,0,"chosenWrongDead");
+          this.background = game.add.sprite(0,0,"backgroundOfNotDoom");
         }
         this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
 

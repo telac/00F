@@ -16,15 +16,19 @@ Loading.prototype = {
         // Backgrounds
         game.load.image('background', 'content/img/backgrounds/uusivesitausta.png');
         game.load.image("winscreen", "content/winscreen.png");
-        game.load.image("chosenWrongAlive", "content/img/backgrounds/chosenwrongalive.png");
-        game.load.image("chosenWrongDead", "content/img/backgrounds/chosenwrongdead.png");
-        game.load.image("chosenRightDead", "content/img/backgrounds/chosenrightdead.png");
         game.load.image("backgroundOfDoom", "content/img/backgrounds/maisemaDOOM.png");
+        game.load.image("backgroundOfNotDoom", "content/img/backgrounds/maisemanotDOOM.png");
         game.load.image("menuscreen", "content/img/backgrounds/menu1.png");
         game.load.image("tutorial-1", "content/img/backgrounds/tutorial-1.png");
 
         game.load.image("enter-key", "content/enter-key-small.png");
         game.load.image('console', 'content/img/buttons/console.png');
+        game.load.image("walrus", "content/img/backgrounds/mursu.png");
+
+        // evat
+        game.load.image("fin1", "content/img/misc/rapyla1.png");
+        game.load.image("fin2", "content/img/misc/rapyla2.png");
+        game.load.image("fin3", "content/img/misc/rapylakasine.png");
 
         // Characters
         game.load.spritesheet("eel", "content/img/characters/eelSheet.png",520,520,3);
@@ -188,6 +192,27 @@ Loading.prototype = {
         game.load.audio('5-18', 'content/audio/CHAR5/CHAR5_18.wav');
         game.load.audio('5-19', 'content/audio/CHAR5/CHAR5_19.wav');
         game.load.audio('5-20', 'content/audio/CHAR5/CHAR5_20.wav');
+
+        game.load.audio('6-01', 'content/audio/CHAR6/CHAR6_01.wav');
+        game.load.audio('6-02', 'content/audio/CHAR6/CHAR6_02.wav');
+        game.load.audio('6-03', 'content/audio/CHAR6/CHAR6_03.wav');
+        game.load.audio('6-04', 'content/audio/CHAR6/CHAR6_04.wav');
+        game.load.audio('6-05', 'content/audio/CHAR6/CHAR6_05.wav');
+        game.load.audio('6-06', 'content/audio/CHAR6/CHAR6_06.wav');
+        game.load.audio('6-07', 'content/audio/CHAR6/CHAR6_07.wav');
+        game.load.audio('6-08', 'content/audio/CHAR6/CHAR6_08.wav');
+        game.load.audio('6-09', 'content/audio/CHAR6/CHAR6_09.wav');
+        game.load.audio('6-10', 'content/audio/CHAR6/CHAR6_10.wav');
+        game.load.audio('6-11', 'content/audio/CHAR6/CHAR6_11.wav');
+        game.load.audio('6-12', 'content/audio/CHAR6/CHAR6_12.wav');
+        game.load.audio('6-13', 'content/audio/CHAR6/CHAR6_13.wav');
+        game.load.audio('6-14', 'content/audio/CHAR6/CHAR6_14.wav');
+        game.load.audio('6-15', 'content/audio/CHAR6/CHAR6_15.wav');
+        game.load.audio('6-16', 'content/audio/CHAR6/CHAR6_16.wav');
+        game.load.audio('6-17', 'content/audio/CHAR6/CHAR6_17.wav');
+        game.load.audio('6-18', 'content/audio/CHAR6/CHAR6_18.wav');
+        game.load.audio('6-19', 'content/audio/CHAR6/CHAR6_19.wav');
+        game.load.audio('6-20', 'content/audio/CHAR6/CHAR6_20.wav');
     },
 
     loadFonts: function () {
@@ -199,6 +224,7 @@ Loading.prototype = {
     // Preload game assets
     preload: function () {
         this.background = game.add.sprite(0, 0, 'loadingscreen');
+        this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
         game.load.onFileComplete.add(this.loadFileComplete, this);
         this.loadScripts();
         this.loadImages();
@@ -222,14 +248,14 @@ Loading.prototype = {
     },
 
     loadFileComplete: function(progress, cacheKey, success, totalLoaded, totalFiles) {
-        var scaler = 2.0;
-        var totalNumberOfFlames = 5;
-        var numberOfFlames = Math.floor(totalNumberOfFlames * progress / 100.0);
+        var scaler = 0.3;
+        var totalNumOfDolphins = 5;
+        var numberOfDolphins = Math.floor(totalNumOfDolphins * progress / 100.0);
         var loadingSprite = game.add.sprite(0, 0, "loadingbar");
-        loadingSprite.x = game.world.centerX + scaler * loadingSprite.width * (numberOfFlames - totalNumberOfFlames / 2.0);
-        loadingSprite.y = game.world.centerY;
-        loadingSprite.anchor.setTo(0.5, 0.5);
-        loadingSprite.scale.setTo(scaler, scaler);
+        loadingSprite.x = game.world.centerX + scaler * loadingSprite.width * (numberOfDolphins - totalNumOfDolphins / 2.0);
+        loadingSprite.y = game.world.centerY + 100;
+        loadingSprite.anchor.setTo(0.5);
+        loadingSprite.scale.setTo(scaler);
         loadingSprite.smoothed = false;
     },
 }
