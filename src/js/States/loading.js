@@ -15,7 +15,9 @@ Loading.prototype = {
         // Backgrounds
         game.load.image('background', 'content/img/backgrounds/uusivesitausta.png');
         game.load.image("winscreen", "content/winscreen.png");
-        game.load.image("losescreen", "content/ulose.png");
+        game.load.image("chosenWrongAlive", "content/img/backgrounds/chosenwrongalive.png");
+        game.load.image("chosenWrongDead", "content/img/backgrounds/chosenwrongdead.png");
+        game.load.image("chosenRightDead", "content/img/backgrounds/chosenrightdead.png");
         game.load.image("menuscreen", "content/menu.png");
         game.load.image("tutorial-1", "content/img/backgrounds/tutorial-1.png");
 
@@ -30,6 +32,7 @@ Loading.prototype = {
         game.load.image("lightGreen", "content/img/characters/green.png");
         game.load.image("purple", "content/img/characters/purple.png");
         game.load.image("lightRed", "content/img/characters/red.png");
+        game.load.image("rip", "content/img/characters/characterDead.png");
 
         // Buttons
         game.load.image("shock", "content/img/buttons/electrify1.png");

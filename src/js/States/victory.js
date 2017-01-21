@@ -15,11 +15,16 @@ Victory.prototype = {
         window.setTimeout(function() {
             game.world.alpha = 1.0;
         }, 10);
-
-        if (playerWon) {
+        if (playerWon && chosenAlive) {
           this.background = game.add.sprite(0, 0, "winscreen");
-        } else {
-          this.background = game.add.sprite(0, 0, "losescreen");
+        } else if (playerWon && !chosenAlive) {
+          this.background = game.add.sprite(0, 0, "chosenRightDead");
+        }
+        else if (!playerWon && chosenAlive) {
+          this.background = game.add.sprite(0,0,"chosenWrongAlive");
+        }
+        else {
+          this.background = game.add.sprite(0,0,"chosenWrongDead");
         }
         this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
 
