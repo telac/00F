@@ -16,7 +16,7 @@ Victory.prototype = {
             game.world.alpha = 1.0;
         }, 10);
         if (playerWon && chosenAlive) {
-          this.background = game.add.sprite(0, 0, "winscreen");
+          this.background = game.add.sprite(0, 0, "backgroundOfDoom");
         } else if (playerWon && !chosenAlive) {
           this.background = game.add.sprite(0, 0, "chosenRightDead");
         }

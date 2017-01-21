@@ -11,11 +11,6 @@ Game.prototype = {
     chosenAlive = true;
     this.sadistValue = -90;
     this.background = game.add.sprite(0, 0, 'background');
-    // the ankerias
-    this.eel = game.add.sprite(640, 120, 'eel');
-    this.eel.animations.add('wiggle', [0,0,0,1]);
-    this.eel.animations.add('strike', [0,2]);
-    this.eel.animations.play('wiggle', 5, true);
     this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
 
     this.bmd = game.add.bitmapData(game.width, game.height);
@@ -23,8 +18,7 @@ Game.prototype = {
   	//	Disables anti-aliasing when we draw sprites to the BitmapData
   	this.bmd.smoothed = true;
 
-    this.eel.scale.setTo(0.3, 0.3);
-    this.eel.anchor.setTo(0.5, 0.5);
+
     this.prisonPosition = 2;
 
     this.console = game.add.sprite(0, 0, 'console');
@@ -35,6 +29,8 @@ Game.prototype = {
       this.fishes.push(new Fish());
       this.fishes[i].tpToMid();
     }
+
+    //cage for the characters
 
     //the victims of interrogative committee
     this.characters = [];
@@ -53,6 +49,7 @@ Game.prototype = {
       this.characters[i].sounds = this.shuffle(this.characters[i].sounds);
       this.characters[i].sprite.x = 120 + i*140;
       this.characters[i].sprite.y = 300;
+      this.characters[i].cage.y = 200;
     }
 
     this.guilty = this.characters[Math.floor(Math.random() * this.characters.length)];
@@ -66,6 +63,22 @@ Game.prototype = {
       }
     }
     //console.log(this.characters);
+    //salamaefektit
+    this.flashBig = game.add.sprite(600, 180, 'flashBig');
+    this.flashBig.scale.setTo(0.5);
+    this.flashBig.alpha = 0;
+    this.flashSmall = game.add.sprite(600,180,'flashSmall');
+    this.flashSmall.scale.setTo(0.5);
+    this.flashSmall.scale.setTo(0.5);
+    this.flashSmall.alpha = 0;
+
+    // the ankerias
+    this.eel = game.add.sprite(640, 120, 'eel');
+    this.eel.animations.add('wiggle', [0,0,0,1]);
+    this.eel.animations.add('strike', [0,2]);
+    this.eel.animations.play('wiggle', 5, true);
+    this.eel.scale.setTo(0.3, 0.3);
+    this.eel.anchor.setTo(0.5, 0.5);
 
     //HUD!
     this.electrify = game.add.button(game.world.centerX, 635, 'electrify', this.dealDamage, this, 0,0, 1);
@@ -127,7 +140,7 @@ Game.prototype = {
       this.eel.scale.setTo(0.3, 0.3);
     }
 
-    this.eel.y  = 120 - 6 * this.angle_y;
+    this.eel.y  = 90 - 6 * this.angle_y;
     this.eel.x = 640 + 150 * this.angle;
 
     this.bmd.clear();
@@ -159,6 +172,7 @@ Game.prototype = {
     this.backgroundAnimation();
     for(var i = 0; i <= 4; i++) {
         game.add.tween(this.characters[i].sprite).to({ x: 640 + (i)*640 - this.prisonPosition * 640 }, 50, Phaser.Easing.Linear.InOut, true, 0.1, 1000, true);
+        game.add.tween(this.characters[i].cage).to({ x: 640 + (i)*640 - this.prisonPosition * 640 }, 50, Phaser.Easing.Linear.InOut, true, 0.1, 1000, true);
     }
 
     if (this.enterKey.isDown) {
@@ -188,7 +202,8 @@ Game.prototype = {
     console.log("deal damage to:" + this.characters[this.prisonPosition].name);
     this.characters[this.prisonPosition].sprite.play('shock', 1, false);
     this.eel.animations.play('strike', 5, false);
-    this.eel.animations.currentAnim.onComplete.add(function() {this.eel.animations.play('wiggle', 5, true);},this);
+    this.flashBig.alpha = 1;
+    this.eel.animations.currentAnim.onComplete.add(function() {this.eel.animations.play('wiggle', 5, true); this.flashBig.alpha = 0;},this);
     this.characters[this.prisonPosition].health -= 1;
     if (this.characters[this.prisonPosition].health < 0) {
       this.killCharacter();
