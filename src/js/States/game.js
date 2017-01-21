@@ -1,13 +1,14 @@
 var Game = function () {};
 
 var playerWon = false;
-
+var chosenAlive = true;
 Game.prototype = {
   create: function() {
     window.setTimeout(function() {
         game.world.alpha = 1.0;
     }, 10);
     playerWon = false;
+    chosenAlive = true;
 
     this.background = game.add.sprite(0, 0, 'background');
     // the ankerias
@@ -137,9 +138,20 @@ Game.prototype = {
     console.log("deal damage to:" + this.characters[this.prisonPosition].name);
     //this.agent.animations.play('shock', 5, false);
     this.characters[this.prisonPosition].sprite.play('shock', 5, false);
-    this.eel.x = 640; this.eel.y = 150;
     this.eel.animations.play('strike', 5, false);
     this.eel.animations.currentAnim.onComplete.add(function() {this.eel.animations.play('wiggle', 5, true);},this);
+    this.characters[this.prisonPosition].health -= 1;
+    if (this.characters[this.prisonPosition].health < 0) {
+      this.killCharacter();
+    }
+  },
+
+  killCharacter : function() {
+    this.characters[this.prisonPosition].sprite.loadTexture('rip', 0);
+    this.characters[this.prisonPosition].alive = false;
+    if (this.characters[this.prisonPosition] == this.guilty) {
+      this.guilty.alive = false;
+    }
   },
 
   shuffle : function(array) {
@@ -155,7 +167,7 @@ Game.prototype = {
   },
 
   selectTarget : function() {
-    console.log("select target:" + this.characters[this.prisonPosition].name);
+    chosenAlive = this.guilty.alive;
     if (this.characters[this.prisonPosition] == this.guilty) {
       playerWon = true;
     }
