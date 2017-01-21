@@ -91,7 +91,7 @@ Game.prototype = {
     this.meter.scale.setTo(0.4);
     this.meter.anchor.setTo(0.5, 1);
 
-    this.meterButton = game.add.sprite(140, 665, 'meterButton');
+    this.meterButton = game.add.sprite(145, 665, 'meterButton');
     this.meterButton.scale.setTo(0.5);
     this.orangeLight = game.add.sprite(33, 607, "orangeLight");
     this.orangeLight.scale.setTo(0.45);
@@ -101,7 +101,6 @@ Game.prototype = {
     this.redLight.scale.setTo(0.45);
     this.redLight.anchor.setTo(0.5);
     this.redLight.alpha = 0;
-
 
     // button definitions
     this.upKey = game.input.keyboard.addKey(Phaser.Keyboard.UP);
@@ -142,7 +141,16 @@ Game.prototype = {
       this.fishes[i].move();
     }
 
-    this.orangeLight.alpha = Math.sin(this.time.now/250);
+    if (this.sadistValue > -30) {
+      this.orangeLight.alpha = Math.sin(this.time.now/250);
+    } else {
+      this.orangeLight.alpha = 0;
+    }
+    if (this.sadistValue > +30) {
+      this.redLight.alpha = Math.sin(this.time.now/50);
+    } else {
+      this.redLight.alpha = 0;
+    }
 
   },
 

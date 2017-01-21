@@ -19,11 +19,13 @@ function Character(id) {
         this.sprite.scale.setTo(0.1);
         break;
       case 2:
-        this.name = 'darkGreen';
+        this.name = 'scientist';
         this.maxHealth = 20;
         this.sounds = ['c-01', 'c-02', 'c-03', 'c-04'];
-        this.sprite = game.add.sprite(-1000,-1000, 'darkGreen');
-        this.sprite.scale.setTo(0.5);
+        this.sprite = game.add.sprite(640, 300, 'scientist');
+        this.sprite.animations.add('shock', [1, 0]);
+        this.sprite.animations.play('shock', 1, false);
+        this.sprite.scale.setTo(0.1);
         break;
       case 3:
         this.name = 'darkRed';
