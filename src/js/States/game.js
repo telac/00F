@@ -10,8 +10,10 @@ Game.prototype = {
     playerWon = false;
 
     this.background = game.add.sprite(0, 0, 'background');
-
+    // the ankerias
     this.eel = game.add.sprite(400, 120, 'eel');
+    this.eel.animations.add('wiggle');
+    this.eel.animations.play('wiggle', 5, true);
     this.eel.scale.setTo(0.3, 0.3);
     this.eel.anchor.setTo(0.5, 0.5);
     this.prisonPosition = 2;
@@ -88,7 +90,25 @@ Game.prototype = {
     this.downKey.onDown.add(this.dealDamage, this);
   },
 
+  eelAnimation : function() {
+    this.mod = 1200;
+    this.angle = Math.sin(this.time.now/this.mod);
+    this.angle_y = Math.sin(this.time.now/(this.mod/6));
+    this.angle_2 = -Math.cos(this.time.now/this.mod);
+    if (this.angle_2 < 0) {
+      this.eel.scale.setTo(-0.3, 0.3);
+    }
+    else {
+      this.eel.scale.setTo(0.3, 0.3);
+    }
+    this.eel.y  = 120 - 6 * this.angle_y;
+    this.eel.x = 400 + 150 * this.angle;
+
+
+  },
+
   update: function() {
+    this.eelAnimation();
     for(var i = 0; i <= 4; i++) {
         this.characters[i].sprite.x = +400 + (i)*400 - this.prisonPosition * 400;
     }

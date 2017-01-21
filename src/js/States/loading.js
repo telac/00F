@@ -24,7 +24,7 @@ Loading.prototype = {
         game.load.image("enter-key", "content/enter-key-small.png");
 
         // Characters
-        game.load.image("eel", "content/img/characters/ankerias1.png");
+        game.load.spritesheet("eel", "content/img/characters/eelSheet.png",520,520,2);
         game.load.image("lightBlue", "content/img/characters/blue.png");
         game.load.image("darkBlue", "content/img/characters/darkblue.png");
         game.load.image("darkGreen", "content/img/characters/darkgreen.png");
