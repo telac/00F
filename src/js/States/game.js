@@ -18,13 +18,6 @@ Game.prototype = {
     this.eel.animations.play('wiggle', 5, true);
     this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
 
-    // ka le
-    this.fish1 = game.add.sprite(640, 300, 'fish1');
-    this.fish2 = game.add.sprite(640, 120, 'fish2');
-    this.fish1.scale.setTo(0.3); this.fish2.scale.setTo(0.3);
-    this.fish1.anchor.setTo(0.5, 0.5); this.fish2.anchor.setTo(0.5,0.5);
-
-
     this.bmd = game.add.bitmapData(game.width, game.height);
   	this.bmd.addToWorld();
   	//	Disables anti-aliasing when we draw sprites to the BitmapData
@@ -37,6 +30,12 @@ Game.prototype = {
 
     this.console = game.add.sprite(0, 0, 'console');
     this.console.scale.setTo(1280/this.console.width, 720/this.console.height);
+
+    this.fishes = [];
+    for (var i = 0; i <= 29; i++) {
+      this.fishes.push(new Fish());
+      this.fishes[i].tpToMid();
+    }
 
     //the victims of interrogative committee
     this.characters = [];
@@ -106,8 +105,6 @@ Game.prototype = {
   backgroundAnimation : function() {
     this.mod = 1200;
     this.angle = Math.sin(this.time.now/this.mod);
-    this.fishAngle = Math.sin(this.time.now/(this.mod*8));
-    this.cosFish = Math.cos(this.time.now/(this.mod*8));
     this.angle_y = Math.sin(this.time.now/(this.mod*12));
     this.angle_2 = -Math.cos(this.time.now/this.mod);
     if (this.angle_2 < 0) {
@@ -142,6 +139,10 @@ Game.prototype = {
     this.bmd.ctx.fillStyle = '#277309';
     this.bmd.ctx.fill();
     this.bmd.draw(this.characters[this.prisonPosition].sprite, 1110, 650);
+
+    for (var i = 0; i <= 29; i++) {
+      this.fishes[i].move();
+    }
   },
 
   eelLeft : function() {

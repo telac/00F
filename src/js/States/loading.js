@@ -9,6 +9,7 @@ Loading.prototype = {
         game.load.script("VictoryScript", "js/States/victory.js");
 
         game.load.script("character", "js/Objects/character.js");
+        game.load.script("fish", "js/Objects/fish.js");
     },
 
     loadImages: function () {
