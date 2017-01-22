@@ -30,7 +30,7 @@ Victory.prototype = {
         else if (!playerWon && chosenAlive) {
           this.background = game.add.sprite(0,0,"backgroundOfNotDoom");
           this.vText = "You fool! You let the culprit run free and chose the wrong fella! The sea is doomed."+
-          "\n All your dolphin-powers have ben revoked and you WILL BE EXILED FROM THE DOLPHIN COMMUNITY"+
+          "\n All your dolphin-powers have ben revoked and you WILL BE EXILED FROM THE DOLPHIN COMMUNITY."+
           "\n Humanity wins.";
         }
         else {
@@ -40,7 +40,7 @@ Victory.prototype = {
         }
         if (sadistValue > 85) {
           this.vText = "We told you that you could use any means necessary.... but still, Flppers." +
-          "\n you went too far. We have evaluated that your sadist value is " + sadistValue + " which according to our studies" +
+          "\n you went too far. We have evaluated that your sadist value is " + sadistValue + ", which according to our studies" +
           "\n means that you enjoyed hurting our suspects. That is not acceptable, and you know it, Flippers."
         }
         this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
