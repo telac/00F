@@ -28,7 +28,8 @@ Menu.prototype = {
         this.fish2 = new Fish();
         this.fish2.tpToMid();
 
-
+        this.title = game.add.text(415, 100, 'lipper ', {font: '60px Orbitron', fill: '#555450', fontStyle: 'italic'});
+        game.time.events.add(Phaser.Timer.SECOND * 2, this.changeText, this);
     },
 
     next: function() {
@@ -47,4 +48,16 @@ Menu.prototype = {
         this.fish1.move();
         this.fish2.move();
     },
+
+    changeText: function() {
+      var textlist = ['lipper', 'in', 'urious', 'un', 'uuuuuuu', 'acinorous', 'adoodle', 'amulus', 'antassin', 'arad', 'arouche', 'atiloquent', 'atuous', 'emicide', 'eracious', 'ermi', 'erruginous', 'iddlededee', 'iddle-faddle', 'ierasfer'];
+      var newText = textlist[Math.floor(Math.random() * textlist.length)] + ' ';
+      while (newText == this.title.text) {
+        newText = textlist[Math.floor(Math.random() * textlist.length)] + ' ';
+      }
+      this.tween = game.add.tween(this.title);
+      this.tween.to({alpha: 0}, 500, Phaser.Easing.Linear.None, true, delay = 0, repeat = 0, yoyo = true);
+      game.time.events.add(Phaser.Timer.SECOND * 0.5, function() {this.title.setText(newText);}, this);
+      this.tween.onComplete.add(function() {game.time.events.add(Phaser.Timer.SECOND * 2, this.changeText, this);}, this);
+    }
 }
