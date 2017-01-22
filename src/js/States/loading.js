@@ -221,6 +221,28 @@ Loading.prototype = {
         game.load.audio('6-18', 'content/audio/CHAR6/CHAR6_18.mp3');
         game.load.audio('6-19', 'content/audio/CHAR6/CHAR6_19.mp3');
         game.load.audio('6-20', 'content/audio/CHAR6/CHAR6_20.mp3');
+
+        //robo
+        game.load.audio('8-01', 'content/audio/CHAR8/CHAR8_01.mp3');
+        game.load.audio('8-02', 'content/audio/CHAR8/CHAR8_02.mp3');
+        game.load.audio('8-03', 'content/audio/CHAR8/CHAR8_03.mp3');
+        game.load.audio('8-04', 'content/audio/CHAR8/CHAR8_04.mp3');
+        game.load.audio('8-05', 'content/audio/CHAR8/CHAR8_05.mp3');
+        game.load.audio('8-06', 'content/audio/CHAR8/CHAR8_06.mp3');
+        game.load.audio('8-07', 'content/audio/CHAR8/CHAR8_07.mp3');
+        game.load.audio('8-08', 'content/audio/CHAR8/CHAR8_08.mp3');
+        game.load.audio('8-09', 'content/audio/CHAR8/CHAR8_09.mp3');
+        game.load.audio('8-10', 'content/audio/CHAR8/CHAR8_10.mp3');
+        game.load.audio('8-11', 'content/audio/CHAR8/CHAR8_11.mp3');
+        game.load.audio('8-12', 'content/audio/CHAR8/CHAR8_12.mp3');
+        game.load.audio('8-13', 'content/audio/CHAR8/CHAR8_13.mp3');
+        game.load.audio('8-14', 'content/audio/CHAR8/CHAR8_14.mp3');
+        game.load.audio('8-15', 'content/audio/CHAR8/CHAR8_15.mp3');
+        game.load.audio('8-16', 'content/audio/CHAR8/CHAR8_16.mp3');
+        game.load.audio('8-17', 'content/audio/CHAR8/CHAR8_17.mp3');
+        game.load.audio('8-18', 'content/audio/CHAR8/CHAR8_18.mp3');
+        game.load.audio('8-19', 'content/audio/CHAR8/CHAR8_19.mp3');
+        game.load.audio('8-20', 'content/audio/CHAR8/CHAR8_20.mp3');
     },
 
     loadFonts: function () {
