@@ -68,6 +68,7 @@ Tutorial.prototype = {
         game.add
             .tween(game.world).to({alpha: 0.0}, 1000, Phaser.Easing.Linear.Out, true)
             .onComplete.add(function() {
+                this.s.stop();
                 game.state.start("Game");
             }, this);
     },
@@ -75,7 +76,7 @@ Tutorial.prototype = {
     playWalrus: function() {
       var soundList = ['w-01', 'w-02', 'w-03', 'w-04', 'w-05', 'w-06', 'w-07', 'w-08', 'w-09', 'w-10', 'w-11', 'w-12', 'w-13', 'w-14'];
       var sound = soundList[Math.floor(Math.random() * soundList.length)];
-      var s = game.sound.play(sound);
-      s.onStop.add(function() {game.time.events.add(Phaser.Timer.SECOND * 0.1, this.playWalrus, this);}, this);
+      this.s = game.sound.play(sound);
+      this.s.onStop.add(function() {game.time.events.add(Phaser.Timer.SECOND * 0.1, this.playWalrus, this);}, this);
     }
 };

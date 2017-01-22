@@ -15,7 +15,7 @@ Victory.prototype = {
         window.setTimeout(function() {
             game.world.alpha = 1.0;
         }, 10);
-        console.log("playerWon:" + playerWon + "chosenAlive:" + chosenAlive);
+        //console.log("playerWon:" + playerWon + "chosenAlive:" + chosenAlive);
         if (playerWon && chosenAlive) {
           this.vText = "You have chosen wisely. The launch code you recieved was correct, and you have"+
           "\n destroyed all of humanity. Good job, Flippers!"+

@@ -52,7 +52,7 @@ Game.prototype = {
     }
 
     this.guilty = this.characters[Math.floor(Math.random() * this.characters.length)];
-    console.log("guilty: " + this.guilty.name);
+    //console.log("guilty: " + this.guilty.name);
     this.theSound = this.guilty.sounds.pop();
 
     for (var i = 0; i <= 4; i++) {
@@ -232,7 +232,7 @@ Game.prototype = {
     }
 
     this.characters[this.prisonPosition].heartRate = 60 +  10 *(this.characters[this.prisonPosition].maxHealth / this.characters[this.prisonPosition].health);
-    console.log("deal damage to:" + this.characters[this.prisonPosition].name);
+    //console.log("deal damage to:" + this.characters[this.prisonPosition].name);
     this.characters[this.prisonPosition].sprite.play('shock', 1, false);
     this.eel.animations.play('strike', 5, false);
     this.flashBig.alpha = 1;
