@@ -14,11 +14,15 @@ a modern browser. python if using python webserver. game also available in itch.
 
 # crew
 
-Antti Karkinen (programming)
-Johanna Karkinen (art)
-Siiri Kettunen (art)
-Heidi Urnberg (art)
-Christian Westerlund (programming)
+  -Antti Karkinen (programming)
+
+  -Johanna Karkinen (art)
+
+  -Siiri Kettunen (art)
+
+  -Heidi Urnberg (art)
+  
+  -Christian Westerlund (programming)
 
 # itch.io site
 
