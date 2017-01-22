@@ -18,14 +18,13 @@ Loading.prototype = {
         game.load.image("backgroundOfDoom", "content/img/backgrounds/maisemaDOOM.png");
         game.load.image("backgroundOfNotDoom", "content/img/backgrounds/maisemanotDOOM.png");
         game.load.image("menuscreen", "content/img/backgrounds/menu1.png");
-        game.load.image("tutorial-1", "content/img/backgrounds/tutorial-1.png");
 
         game.load.image("enter-key", "content/img/misc/enter-key-small.png");
         game.load.image('console', 'content/img/buttons/console.png');
-        game.load.image("walrus", "content/img/backgrounds/mursu1.png");
-        game.load.image("walrus1", "content/img/backgrounds/mursu2.png");
-        game.load.image("walrus2", "content/img/backgrounds/mursu3.png");
-        game.load.image("walrus3", "content/img/backgrounds/mursu4.png");
+        game.load.image("walrus", "content/img/backgrounds/tuto1.png");
+        game.load.image("walrus1", "content/img/backgrounds/tuto2.png");
+        game.load.image("walrus2", "content/img/backgrounds/tuto3.png");
+        game.load.image("walrus3", "content/img/backgrounds/tuto4.png");
 
         // evat
         game.load.image("fin1", "content/img/misc/rapyla1.png");
@@ -33,13 +32,6 @@ Loading.prototype = {
         game.load.image("fin3", "content/img/misc/rapylakasine.png");
 
         // Characters
-        game.load.image("lightBlue", "content/img/characters/blue.png");
-        game.load.image("darkBlue", "content/img/characters/darkblue.png");
-        game.load.image("darkGreen", "content/img/characters/darkgreen.png");
-        game.load.image("darkRed", "content/img/characters/darkred.png");
-        game.load.image("lightGreen", "content/img/characters/green.png");
-        game.load.image("purple", "content/img/characters/purple.png");
-        game.load.image("lightRed", "content/img/characters/red.png");
         game.load.image("rip", "content/img/characters/corpse.png");
 
         //efektit
