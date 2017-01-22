@@ -71,21 +71,6 @@ Loading.prototype = {
     },
 
     loadAudio: function() {
-        game.load.audio('a-01', 'content/audio/a-01.mp3');
-        game.load.audio('a-02', 'content/audio/a-02.mp3');
-        game.load.audio('a-03', 'content/audio/a-03.mp3');
-        game.load.audio('a-04', 'content/audio/a-04.mp3');
-
-        game.load.audio('b-01', 'content/audio/b-01.mp3');
-        game.load.audio('b-02', 'content/audio/b-02.mp3');
-        game.load.audio('b-03', 'content/audio/b-03.mp3');
-        game.load.audio('b-04', 'content/audio/b-04.mp3');
-
-        game.load.audio('c-01', 'content/audio/c-01.mp3');
-        game.load.audio('c-02', 'content/audio/c-02.mp3');
-        game.load.audio('c-03', 'content/audio/c-03.mp3');
-        game.load.audio('c-04', 'content/audio/c-04.mp3');
-
         game.load.audio('1-01', 'content/audio/CHAR1/CHAR1_01.mp3');
         game.load.audio('1-02', 'content/audio/CHAR1/CHAR1_02.mp3');
         game.load.audio('1-03', 'content/audio/CHAR1/CHAR1_03.mp3');
@@ -229,7 +214,6 @@ Loading.prototype = {
         game.load.audio('w-13', 'content/audio/mursu/mursu_13.mp3');
         game.load.audio('w-14', 'content/audio/mursu/mursu_14.mp3');
 
-        //robo
         game.load.audio('8-01', 'content/audio/CHAR8/CHAR8_01.mp3');
         game.load.audio('8-02', 'content/audio/CHAR8/CHAR8_02.mp3');
         game.load.audio('8-03', 'content/audio/CHAR8/CHAR8_03.mp3');
