@@ -68,6 +68,8 @@ Loading.prototype = {
         game.load.spritesheet("robot", "content/img/characters/robo.png", 358, 417, 2);
         game.load.spritesheet("president", "content/img/characters/pressa.png",276,573,2);
         game.load.spritesheet("eskimo", "content/img/characters/eskimo.png",195,448,2);
+        game.load.spritesheet("chimp", "content/img/characters/chimps.png",175,393,2);
+        game.load.spritesheet("biologist", "content/img/characters/meriBiologi.png",277,521,2);
     },
 
     loadAudio: function() {
@@ -255,7 +257,49 @@ Loading.prototype = {
         game.load.audio('8-18', 'content/audio/CHAR8/CHAR8_18.mp3');
         game.load.audio('8-19', 'content/audio/CHAR8/CHAR8_19.mp3');
         game.load.audio('8-20', 'content/audio/CHAR8/CHAR8_20.mp3');
+/*
+        game.load.audio('9-01', 'content/audio/CHAR9/CHAR9_01.mp3');
+        game.load.audio('9-02', 'content/audio/CHAR9/CHAR9_02.mp3');
+        game.load.audio('9-03', 'content/audio/CHAR9/CHAR9_03.mp3');
+        game.load.audio('9-04', 'content/audio/CHAR9/CHAR9_04.mp3');
+        game.load.audio('9-05', 'content/audio/CHAR9/CHAR9_05.mp3');
+        game.load.audio('9-06', 'content/audio/CHAR9/CHAR9_06.mp3');
+        game.load.audio('9-07', 'content/audio/CHAR9/CHAR9_07.mp3');
+        game.load.audio('9-08', 'content/audio/CHAR9/CHAR9_08.mp3');
+        game.load.audio('9-09', 'content/audio/CHAR9/CHAR9_09.mp3');
+        game.load.audio('9-10', 'content/audio/CHAR9/CHAR9_10.mp3');
+        game.load.audio('9-11', 'content/audio/CHAR9/CHAR9_11.mp3');
+        game.load.audio('9-12', 'content/audio/CHAR9/CHAR9_12.mp3');
+        game.load.audio('9-13', 'content/audio/CHAR9/CHAR9_13.mp3');
+        game.load.audio('9-14', 'content/audio/CHAR9/CHAR9_14.mp3');
+        game.load.audio('9-15', 'content/audio/CHAR9/CHAR9_15.mp3');
+        game.load.audio('9-16', 'content/audio/CHAR9/CHAR9_16.mp3');
+        game.load.audio('9-17', 'content/audio/CHAR9/CHAR9_17.mp3');
+        game.load.audio('9-18', 'content/audio/CHAR9/CHAR9_18.mp3');
+        game.load.audio('9-19', 'content/audio/CHAR9/CHAR9_19.mp3');
+        game.load.audio('9-20', 'content/audio/CHAR9/CHAR9_20.mp3');
 
+        game.load.audio('10-01', 'content/audio/CHAR10/CHAR10_01.mp3');
+        game.load.audio('10-02', 'content/audio/CHAR10/CHAR10_02.mp3');
+        game.load.audio('10-03', 'content/audio/CHAR10/CHAR10_03.mp3');
+        game.load.audio('10-04', 'content/audio/CHAR10/CHAR10_04.mp3');
+        game.load.audio('10-05', 'content/audio/CHAR10/CHAR10_05.mp3');
+        game.load.audio('10-06', 'content/audio/CHAR10/CHAR10_06.mp3');
+        game.load.audio('10-07', 'content/audio/CHAR10/CHAR10_07.mp3');
+        game.load.audio('10-08', 'content/audio/CHAR10/CHAR10_08.mp3');
+        game.load.audio('10-09', 'content/audio/CHAR10/CHAR10_09.mp3');
+        game.load.audio('10-10', 'content/audio/CHAR10/CHAR10_10.mp3');
+        game.load.audio('10-11', 'content/audio/CHAR10/CHAR10_11.mp3');
+        game.load.audio('10-12', 'content/audio/CHAR10/CHAR10_12.mp3');
+        game.load.audio('10-13', 'content/audio/CHAR10/CHAR10_13.mp3');
+        game.load.audio('10-14', 'content/audio/CHAR10/CHAR10_14.mp3');
+        game.load.audio('10-15', 'content/audio/CHAR10/CHAR10_15.mp3');
+        game.load.audio('10-16', 'content/audio/CHAR10/CHAR10_16.mp3');
+        game.load.audio('10-17', 'content/audio/CHAR10/CHAR10_17.mp3');
+        game.load.audio('10-18', 'content/audio/CHAR10/CHAR10_18.mp3');
+        game.load.audio('10-19', 'content/audio/CHAR10/CHAR10_19.mp3');
+        game.load.audio('10-20', 'content/audio/CHAR10/CHAR10_20.mp3');
+*/
     },
 
     loadFonts: function () {
