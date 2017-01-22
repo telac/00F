@@ -15,18 +15,32 @@ Victory.prototype = {
         window.setTimeout(function() {
             game.world.alpha = 1.0;
         }, 10);
+        console.log("playerWon:" + playerWon + "chosenAlive:" + chosenAlive);
         if (playerWon && chosenAlive) {
+          this.vText = "You have chosen wisely. The launch code you recieved was correct, and you have"+
+          "\n destroyed all of humanity. Good job, flippers!"+
+          "\n DOLPHINS WIN! (and yes, you were playng for the dolphins all this time!)";
           this.background = game.add.sprite(0, 0, "backgroundOfDoom");
         } else if (playerWon && !chosenAlive) {
+          this.vText = "You chose correctly, but that last finslap was a bit too much..."+
+          "\n unfortunately the suspect died, and was unable to give you the launch code."+
+          "\n Tie between humanity and dolphins. Nothing changes.";
           this.background = game.add.sprite(0, 0, "backgroundOfNotDoom");
         }
         else if (!playerWon && chosenAlive) {
           this.background = game.add.sprite(0,0,"backgroundOfNotDoom");
+          this.vText = "You fool! You let the culprit run free and chose the wrong fella! The sea is doomed."+
+          "\n All your dolphin-powers have ben revoked and you WILL BE EXILED FROM THE DOLPHIN COMMUNITY"+
+          "\n Humanity wins.";
         }
         else {
           this.background = game.add.sprite(0,0,"backgroundOfNotDoom");
+          this.vText = "You chose the wrong suspect, but luckily you managed to kill the real culprit." +
+          "\n The wave machine malfunctioned.";
         }
         this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
+        this.endText = game.add.text(640, 50, this.vText, {font: '20px Orbitron', fill: '#FFFFFF'});
+        this.endText.anchor.setTo(0.5,0.5);
 
         this.buildingsBack = [];
         var x = 100;
