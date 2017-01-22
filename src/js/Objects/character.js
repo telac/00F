@@ -23,7 +23,7 @@ function Character(id) {
         break;
       case 2:
         this.name = 'scientist';
-        this.maxHealth = 20;
+        this.maxHealth = 15;
         this.sounds = ['3-01', '3-02', '3-03', '3-04', '3-05', '3-06', '3-07', '3-08', '3-09', '3-10', '3-11', '3-12', '3-13', '3-14', '3-15', '3-16', '3-17', '3-18', '3-19', '3-20'];
         this.sprite = game.add.sprite(640, 300, 'scientist');
         this.sprite.animations.add('shock', [1, 0]);
@@ -41,7 +41,7 @@ function Character(id) {
         break;
       case 4:
         this.name = 'eskimo';
-        this.maxHealth = 20;
+        this.maxHealth = 25;
         this.sounds = ['2-01', '2-02', '2-03', '2-04', '2-05', '2-06', '2-07', '2-08', '2-09', '2-10', '2-11', '2-12', '2-13', '2-14', '2-15', '2-16', '2-17', '2-18', '2-19', '2-20'] ;
         this.sprite = game.add.sprite(640, 300, 'eskimo');
         this.sprite.animations.add('shock', [1, 0]);
@@ -50,7 +50,7 @@ function Character(id) {
         break;
       case 5:
         this.name = 'granny';
-        this.maxHealth = 20;
+        this.maxHealth = 5;
         this.sounds = ['4-01', '4-02', '4-03', '4-04', '4-05', '4-06', '4-07', '4-08', '4-09', '4-10', '4-11', '4-12', '4-13', '4-14', '4-15', '4-16', '4-17', '4-18', '4-19', '4-20'];
         this.sprite = game.add.sprite(640, 300, 'granny');
         this.sprite.animations.add('shock', [1, 0]);
@@ -59,8 +59,8 @@ function Character(id) {
         break;
       case 6:
         this.name = 'robot'; // makerobotsounds
-        this.maxHealth = 20;
-        this.sounds = ['a-01', 'a-02', 'a-03', 'a-04'];
+        this.maxHealth = 8;
+        this.sounds = ['8-01', '8-02', '8-03', '8-04', '8-05', '8-06', '8-07', '8-08', '8-09', '8-10', '8-11', '8-12', '8-13', '8-14', '8-15', '8-16', '8-17', '8-18', '8-19', '8-20'];
         this.sprite = game.add.sprite(640, 300, 'robot');
         this.sprite.animations.add('shock', [1, 0]);
         this.sprite.animations.play('shock', 1, false);

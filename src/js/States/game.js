@@ -8,6 +8,7 @@ Game.prototype = {
     window.setTimeout(function() {
         game.world.alpha = 1.0;
     }, 10);
+    sadistValue = -90;
     playerWon = false;
     chosenAlive = true;
     this.background = game.add.sprite(0, 0, 'background');
