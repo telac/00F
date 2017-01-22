@@ -223,7 +223,7 @@ Game.prototype = {
     var s = this.characters[this.prisonPosition].sounds[Math.floor(Math.random() * this.characters[this.prisonPosition].sounds.length)];
     //console.log(s);
     if (this.characters[this.prisonPosition].alive) {
-      sadistValue += 3;
+      sadistValue += 4;
       game.sound.play(s);
       this.characters[this.prisonPosition].health -= 1;
       if (this.characters[this.prisonPosition].health < 1) {
