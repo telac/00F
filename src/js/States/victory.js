@@ -40,7 +40,7 @@ Victory.prototype = {
         }
         if (sadistValue > 85) {
           this.vText = "We told you that you could use any means necessary.... but still, Flppers." +
-          "\n you went too far. We have evaluated that your sadist value is " + sadistValue + " which according to our studies" +
+          "\n you went too far. We have evaluated that your sadist value is " + sadistValue + ", which according to our studies" +
           "\n means that you enjoyed hurting our suspects. That is not acceptable, and you know it, Flippers."
         }
         this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
