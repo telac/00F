@@ -70,6 +70,7 @@ Loading.prototype = {
         game.load.spritesheet("eskimo", "content/img/characters/eskimo.png",195,448,2);
         game.load.spritesheet("chimp", "content/img/characters/chimps.png",175,393,2);
         game.load.spritesheet("biologist", "content/img/characters/meriBiologi.png",277,521,2);
+        game.load.spritesheet("alien", "content/img/characters/alien.png",139,434,2);
     },
 
     loadAudio: function() {
