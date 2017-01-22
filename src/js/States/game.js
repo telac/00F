@@ -30,7 +30,6 @@ Game.prototype = {
     }
 
     //cage for the characters
-
     //the victims of interrogative committee
     this.characters = [];
     for (var i = 0; i <= 9; i++) {
@@ -122,6 +121,7 @@ Game.prototype = {
     this.leftKey.onDown.add(this.eelLeft, this);
     this.rightKey.onDown.add(this.eelRight, this);
     this.downKey.onDown.add(this.dealDamage, this);
+    this.upKey.onDown.add(this.playTheSound, this);
 
     //text
     this.heartRate = 60;
