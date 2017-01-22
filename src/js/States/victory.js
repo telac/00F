@@ -77,6 +77,7 @@ Victory.prototype = {
         this.dolphin.scale.setTo(-1, 1);
         if (playerWon && chosenAlive) {
           this.dolphin.alpha = 1;
+          this.dolphinJump = true;
           this.playDolphin();
         } else {
           this.dolphin.alpha = 0;
@@ -152,15 +153,17 @@ Victory.prototype = {
         game.add
             .tween(game.world).to({alpha: 0.0}, 1000, Phaser.Easing.Linear.Out, true)
             .onComplete.add(function() {
-                this.s.stop();
+                this.dolphinJump = false;
                 game.state.start("Menu");
             }, this);
     },
 
     playDolphin: function() {
-      this.s = game.sound.play('dolphin');
-      this.tween = game.add.tween(this.dolphin);
-      this.tween.to({angle: '+180', y: '-300'}, 700, Phaser.Easing.Linear.None, true, true, delay = 0, repeat = 0, yoyo = false);
-      this.s.onStop.add(function() {game.time.events.add(Phaser.Timer.SECOND * (2 + 2 * Math.random()), this.playDolphin, this); this.tween.to({y: '+300'}, 500, Phaser.Easing.Linear.None, true, true, delay = 0, repeat = 0, yoyo = false);}, this);
+      if (this.dolphinJump) {
+        this.s = game.sound.play('dolphin');
+        this.tween = game.add.tween(this.dolphin);
+        this.tween.to({angle: '+180', y: '-300'}, 700, Phaser.Easing.Linear.None, true, true, delay = 0, repeat = 0, yoyo = false);
+        this.s.onStop.add(function() {game.time.events.add(Phaser.Timer.SECOND * (2 + 2 * Math.random()), this.playDolphin, this); this.tween.to({y: '+300'}, 500, Phaser.Easing.Linear.None, true, true, delay = 0, repeat = 0, yoyo = false);}, this);
+      }
     }
 };
