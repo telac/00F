@@ -213,6 +213,22 @@ Loading.prototype = {
         game.load.audio('6-18', 'content/audio/CHAR6/CHAR6_18.mp3');
         game.load.audio('6-19', 'content/audio/CHAR6/CHAR6_19.mp3');
         game.load.audio('6-20', 'content/audio/CHAR6/CHAR6_20.mp3');
+
+        game.load.audio('w-01', 'content/audio/mursu/mursu_01.mp3');
+        game.load.audio('w-02', 'content/audio/mursu/mursu_02.mp3');
+        game.load.audio('w-03', 'content/audio/mursu/mursu_03.mp3');
+        game.load.audio('w-04', 'content/audio/mursu/mursu_04.mp3');
+        game.load.audio('w-05', 'content/audio/mursu/mursu_05.mp3');
+        game.load.audio('w-06', 'content/audio/mursu/mursu_06.mp3');
+        game.load.audio('w-07', 'content/audio/mursu/mursu_07.mp3');
+        game.load.audio('w-08', 'content/audio/mursu/mursu_08.mp3');
+        game.load.audio('w-09', 'content/audio/mursu/mursu_09.mp3');
+        game.load.audio('w-10', 'content/audio/mursu/mursu_10.mp3');
+        game.load.audio('w-11', 'content/audio/mursu/mursu_11.mp3');
+        game.load.audio('w-12', 'content/audio/mursu/mursu_12.mp3');
+        game.load.audio('w-13', 'content/audio/mursu/mursu_13.mp3');
+        game.load.audio('w-14', 'content/audio/mursu/mursu_14.mp3');
+
     },
 
     loadFonts: function () {
