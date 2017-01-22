@@ -18,6 +18,9 @@ Tutorial.prototype = {
 
         this.pageNames = [
             'walrus',
+            'walrus1',
+            'walrus2',
+            'walrus3',
         ];
         this.currentPage = 0;
         this.setImage(this.pageNames[0]);

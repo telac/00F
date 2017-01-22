@@ -27,6 +27,8 @@ Menu.prototype = {
         this.fish1.tpToMid();
         this.fish2 = new Fish();
         this.fish2.tpToMid();
+
+
     },
 
     next: function() {
