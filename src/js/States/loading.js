@@ -252,7 +252,7 @@ Loading.prototype = {
     create: function() {
         this.addGameStates();
         window.setTimeout(function() {
-            game.state.start("Game");
+            game.state.start("Tutorial");
         }, 1000);
     },
 
