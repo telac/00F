@@ -79,7 +79,7 @@ function Character(id) {
         this.name = 'biologist';
         this.maxHealth = 13;
         this.sounds = ['10-01', '10-02', '10-03', '10-04', '10-05', '10-06', '10-07', '10-08', '10-09', '10-10', '10-11', '10-12', '10-13', '10-14', '10-15', '10-16', '10-17', '10-18', '10-19', '10-20'];
-        this.sprite = game.add.sprite(640, 300, 'robot');
+        this.sprite = game.add.sprite(640, 300, 'biologist');
         this.sprite.animations.add('shock', [1, 0]);
         this.sprite.animations.play('shock', 1, false);
         this.sprite.scale.setTo(0.6);

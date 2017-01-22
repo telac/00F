@@ -33,12 +33,12 @@ Game.prototype = {
 
     //the victims of interrogative committee
     this.characters = [];
-    for (var i = 0; i <= 7; i++) {
+    for (var i = 0; i <= 8; i++) {
       this.characters.push(new Character(i));
     }
 
     this.characters = this.shuffle(this.characters);
-    for (var i = 0; i <= 2; i++) {
+    for (var i = 0; i <= 3; i++) {
       this.rm = this.characters.pop();
       this.rm.sprite.x = -1000;
       this.rm.sprite.y = -1000;

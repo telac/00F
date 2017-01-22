@@ -278,7 +278,7 @@ Loading.prototype = {
         game.load.audio('9-18', 'content/audio/CHAR9/CHAR9_18.mp3');
         game.load.audio('9-19', 'content/audio/CHAR9/CHAR9_19.mp3');
         game.load.audio('9-20', 'content/audio/CHAR9/CHAR9_20.mp3');
-/*
+
         game.load.audio('10-01', 'content/audio/CHAR10/CHAR10_01.mp3');
         game.load.audio('10-02', 'content/audio/CHAR10/CHAR10_02.mp3');
         game.load.audio('10-03', 'content/audio/CHAR10/CHAR10_03.mp3');
@@ -299,7 +299,7 @@ Loading.prototype = {
         game.load.audio('10-18', 'content/audio/CHAR10/CHAR10_18.mp3');
         game.load.audio('10-19', 'content/audio/CHAR10/CHAR10_19.mp3');
         game.load.audio('10-20', 'content/audio/CHAR10/CHAR10_20.mp3');
-*/
+
     },
 
     loadFonts: function () {
