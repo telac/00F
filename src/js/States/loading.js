@@ -54,6 +54,8 @@ Loading.prototype = {
         game.load.image("redLight", "content/img/buttons/punainenvalo.png");
         game.load.image("playButton", "content/img/buttons/playnappi.png");
 
+        game.load.image("dolphin-fav", "dolphyfavicon.png");
+
     },
 
     loadSpritesheets: function() {
@@ -179,6 +181,7 @@ Loading.prototype = {
         game.load.audio('5-20', 'content/audio/CHAR5/CHAR5_20.mp3');
 
         game.load.audio("wilhelm", 'content/audio/wilhelm.ogg');
+        game.load.audio("dolphin", 'content/audio/delfiini.mp3');
 
         game.load.audio('6-01', 'content/audio/CHAR6/CHAR6_01.mp3');
         game.load.audio('6-02', 'content/audio/CHAR6/CHAR6_02.mp3');
