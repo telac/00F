@@ -126,6 +126,22 @@ Game.prototype = {
     this.heartRate = 60;
     this.health = game.add.text(1190, 655, this.heartRate, {font: '30px Orbitron', fill: '#cc3300'});
     this.health.angle = -19;
+
+    this.leftFin = game.add.sprite(250, 700, "fin3");
+    this.leftFin.scale.setTo(-0.2, 0.2);
+    this.leftFin.anchor.setTo(0.5);
+    this.leftFinHp = 15;
+
+    this.tween = game.add.tween(this.leftFin);
+    this.tween.to({x: '+400'}, 800, Phaser.Easing.Sinusoidal.InOut, true, delay = 0, repeat = -1, yoyo = true);
+
+    this.rightFin = game.add.sprite(600, 700, "fin3");
+    this.rightFin.scale.setTo(0.2);
+    this.rightFin.anchor.setTo(0.5);
+    this.rightFinHp = 15;
+
+    this.tween = game.add.tween(this.rightFin);
+    this.tween.to({x: '+400'}, 800, Phaser.Easing.Sinusoidal.InOut, true, delay = 0, repeat = -1, yoyo = true);
   },
 
   backgroundAnimation : function() {
@@ -190,16 +206,19 @@ Game.prototype = {
   },
 
   eelLeft : function() {
+    this.pressButton();
     this.prisonPosition--;
     if (this.prisonPosition < 0)
       this.prisonPosition = 0;
   },
   eelRight : function() {
+    this.pressButton();
     this.prisonPosition++;
     if (this.prisonPosition > 4)
       this.prisonPosition = 4;
   },
   dealDamage : function() {
+    this.pressButton();
     var s = this.characters[this.prisonPosition].sounds[Math.floor(Math.random() * this.characters[this.prisonPosition].sounds.length)];
     //console.log(s);
     if (this.characters[this.prisonPosition].alive) {
@@ -258,6 +277,31 @@ Game.prototype = {
 
   playTheSound : function() {
     game.sound.play(this.theSound);
+  },
+
+  pressButton : function() {
+    var finBool = Math.random() >= 0.5;
+    if (finBool) {
+      var fin = this.rightFin;
+      this.rightFinHp--;
+      if (this.rightFinHp < -15) {
+        this.rightFin.loadTexture('fin2', 0);
+      } else if (this.rightFinHp < 0) {
+        this.rightFin.loadTexture('fin1', 0);
+      }
+    } else {
+      var fin = this.leftFin;
+      this.leftFinHp--;
+      if (this.leftFinHp < -15) {
+        this.leftFin.loadTexture('fin2', 0);
+      } else if (this.leftFinHp < 0) {
+        this.leftFin.loadTexture('fin1', 0);
+      }
+    }
+    var x = (Math.random() >= 0.5 ? '+' : '-') + Math.random()*30;
+    this.tween = game.add.tween(fin);
+    this.tween.to({y: '+60', x: x}, 800, Phaser.Easing.Sinusoidal.InOut, true, delay = 0, repeat = 0, yoyo = true);
+    this.tween.onComplete.add(function() {if (finBool) {fin.x = 800;} else {fin.x = 450;}fin.y = 700;}, this);
   }
 
 }

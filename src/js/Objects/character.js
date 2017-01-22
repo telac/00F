@@ -31,18 +31,22 @@ function Character(id) {
         this.sprite.scale.setTo(0.1);
         break;
       case 3:
-        this.name = 'darkRed'; // president
+        this.name = 'president';
         this.maxHealth = 20;
         this.sounds = ['1-01', '1-02', '1-03', '1-04', '1-05', '1-06', '1-07', '1-08', '1-09', '1-10', '1-11', '1-12', '1-13', '1-14', '1-15', '1-16', '1-17', '1-18', '1-19', '1-20'];
-        this.sprite = game.add.sprite(-1000,-1000, 'darkRed');
+        this.sprite = game.add.sprite(640, 300, 'president');
+        this.sprite.animations.add('shock', [1, 0]);
+        this.sprite.animations.play('shock', 1, false);
         this.sprite.scale.setTo(0.5);
         break;
       case 4:
-        this.name = 'lightGreen'; // female
+        this.name = 'eskimo';
         this.maxHealth = 20;
         this.sounds = ['2-01', '2-02', '2-03', '2-04', '2-05', '2-06', '2-07', '2-08', '2-09', '2-10', '2-11', '2-12', '2-13', '2-14', '2-15', '2-16', '2-17', '2-18', '2-19', '2-20'] ;
-        this.sprite = game.add.sprite(-1000,-1000, 'lightGreen');
-        this.sprite.scale.setTo(0.5);
+        this.sprite = game.add.sprite(640, 300, 'eskimo');
+        this.sprite.animations.add('shock', [1, 0]);
+        this.sprite.animations.play('shock', 1, false);
+        this.sprite.scale.setTo(0.65);
         break;
       case 5:
         this.name = 'granny';

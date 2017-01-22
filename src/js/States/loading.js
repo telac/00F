@@ -31,7 +31,6 @@ Loading.prototype = {
         game.load.image("fin3", "content/img/misc/rapylakasine.png");
 
         // Characters
-        game.load.spritesheet("eel", "content/img/characters/eelSheet.png",520,520,3);
         game.load.image("lightBlue", "content/img/characters/blue.png");
         game.load.image("darkBlue", "content/img/characters/darkblue.png");
         game.load.image("darkGreen", "content/img/characters/darkgreen.png");
@@ -64,6 +63,7 @@ Loading.prototype = {
     },
 
     loadSpritesheets: function() {
+        game.load.spritesheet("eel", "content/img/characters/eelSheet.png",520,520,3);
         game.load.spritesheet("agent", "content/img/characters/agent01.png", 225, 580, 2);
         game.load.spritesheet("teen", "content/img/characters/teenager.png", 1600, 2899, 2);
         game.load.spritesheet("electrify", "content/img/buttons/electrify.png", 110, 132);
@@ -72,6 +72,8 @@ Loading.prototype = {
         game.load.spritesheet("scientist", "content/img/characters/scientysts.png", 1122, 2920, 2);
         game.load.spritesheet("granny", "content/img/characters/granny.png", 688, 1448, 2);
         game.load.spritesheet("robot", "content/img/characters/robo.png", 358, 417, 2);
+        game.load.spritesheet("president", "content/img/characters/pressa.png",276,573,2);
+        game.load.spritesheet("eskimo", "content/img/characters/eskimo.png",195,448,2);
     },
 
     loadAudio: function() {
