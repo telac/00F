@@ -214,6 +214,27 @@ Loading.prototype = {
         game.load.audio('6-19', 'content/audio/CHAR6/CHAR6_19.mp3');
         game.load.audio('6-20', 'content/audio/CHAR6/CHAR6_20.mp3');
 
+        game.load.audio('7-01', 'content/audio/CHAR7/CHAR7_01.mp3');
+        game.load.audio('7-02', 'content/audio/CHAR7/CHAR7_02.mp3');
+        game.load.audio('7-03', 'content/audio/CHAR7/CHAR7_03.mp3');
+        game.load.audio('7-04', 'content/audio/CHAR7/CHAR7_04.mp3');
+        game.load.audio('7-05', 'content/audio/CHAR7/CHAR7_05.mp3');
+        game.load.audio('7-06', 'content/audio/CHAR7/CHAR7_06.mp3');
+        game.load.audio('7-07', 'content/audio/CHAR7/CHAR7_07.mp3');
+        game.load.audio('7-08', 'content/audio/CHAR7/CHAR7_08.mp3');
+        game.load.audio('7-09', 'content/audio/CHAR7/CHAR7_09.mp3');
+        game.load.audio('7-10', 'content/audio/CHAR7/CHAR7_10.mp3');
+        game.load.audio('7-11', 'content/audio/CHAR7/CHAR7_11.mp3');
+        game.load.audio('7-12', 'content/audio/CHAR7/CHAR7_12.mp3');
+        game.load.audio('7-13', 'content/audio/CHAR7/CHAR7_13.mp3');
+        game.load.audio('7-14', 'content/audio/CHAR7/CHAR7_14.mp3');
+        game.load.audio('7-15', 'content/audio/CHAR7/CHAR7_15.mp3');
+        game.load.audio('7-16', 'content/audio/CHAR7/CHAR7_16.mp3');
+        game.load.audio('7-17', 'content/audio/CHAR7/CHAR7_17.mp3');
+        game.load.audio('7-18', 'content/audio/CHAR7/CHAR7_18.mp3');
+        game.load.audio('7-19', 'content/audio/CHAR7/CHAR7_19.mp3');
+        game.load.audio('7-20', 'content/audio/CHAR7/CHAR7_20.mp3');
+
         game.load.audio('w-01', 'content/audio/mursu/mursu_01.mp3');
         game.load.audio('w-02', 'content/audio/mursu/mursu_02.mp3');
         game.load.audio('w-03', 'content/audio/mursu/mursu_03.mp3');
