@@ -58,7 +58,7 @@ function Character(id) {
         this.sprite.scale.setTo(0.2);
         break;
       case 6:
-        this.name = 'robot'; // makerobotsounds
+        this.name = 'robot';
         this.maxHealth = 8;
         this.sounds = ['8-01', '8-02', '8-03', '8-04', '8-05', '8-06', '8-07', '8-08', '8-09', '8-10', '8-11', '8-12', '8-13', '8-14', '8-15', '8-16', '8-17', '8-18', '8-19', '8-20'];
         this.sprite = game.add.sprite(640, 300, 'robot');
