@@ -2,6 +2,7 @@ var Game = function () {};
 
 var playerWon = false;
 var chosenAlive = true;
+var sadistValue = -90;
 Game.prototype = {
   create: function() {
     window.setTimeout(function() {
@@ -9,7 +10,6 @@ Game.prototype = {
     }, 10);
     playerWon = false;
     chosenAlive = true;
-    this.sadistValue = -90;
     this.background = game.add.sprite(0, 0, 'background');
     this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
 
@@ -170,12 +170,12 @@ Game.prototype = {
       this.fishes[i].move();
     }
 
-    if (this.sadistValue > -30) {
+    if (sadistValue > -30) {
       this.orangeLight.alpha = Math.sin(this.time.now/250);
     } else {
       this.orangeLight.alpha = 0;
     }
-    if (this.sadistValue > +30) {
+    if (sadistValue > +30) {
       this.redLight.alpha = Math.sin(this.time.now/50);
     } else {
       this.redLight.alpha = 0;
@@ -193,7 +193,7 @@ Game.prototype = {
     else {
       this.health.setText('0');
     }
-    this.meter.angle = this.sadistValue;
+    this.meter.angle = sadistValue;
     this.backgroundAnimation();
     for(var i = 0; i <= 4; i++) {
         game.add.tween(this.characters[i].sprite).to({ x: 640 + (i)*640 - this.prisonPosition * 640 }, 50, Phaser.Easing.Linear.InOut, true, 0.1, 1000, true);
@@ -222,7 +222,7 @@ Game.prototype = {
     var s = this.characters[this.prisonPosition].sounds[Math.floor(Math.random() * this.characters[this.prisonPosition].sounds.length)];
     //console.log(s);
     if (this.characters[this.prisonPosition].alive) {
-      this.sadistValue += 3;
+      sadistValue += 3;
       game.sound.play(s);
       this.characters[this.prisonPosition].health -= 1;
       if (this.characters[this.prisonPosition].health < 1) {
@@ -236,7 +236,7 @@ Game.prototype = {
     this.eel.animations.play('strike', 5, false);
     this.flashBig.alpha = 1;
     this.eel.animations.currentAnim.onComplete.add(function() {this.eel.animations.play('wiggle', 5, true); this.flashBig.alpha = 0;},this);
-    if (this.sadistValue > 85) {
+    if (sadistValue > 85) {
       plauerWon = false;
       game.state.start("Victory");
     }

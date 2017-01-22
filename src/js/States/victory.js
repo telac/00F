@@ -18,7 +18,7 @@ Victory.prototype = {
         console.log("playerWon:" + playerWon + "chosenAlive:" + chosenAlive);
         if (playerWon && chosenAlive) {
           this.vText = "You have chosen wisely. The launch code you recieved was correct, and you have"+
-          "\n destroyed all of humanity. Good job, flippers!"+
+          "\n destroyed all of humanity. Good job, Flippers!"+
           "\n DOLPHINS WIN! (and yes, you were playng for the dolphins all this time!)";
           this.background = game.add.sprite(0, 0, "backgroundOfDoom");
         } else if (playerWon && !chosenAlive) {
@@ -38,8 +38,13 @@ Victory.prototype = {
           this.vText = "You chose the wrong suspect, but luckily you managed to kill the real culprit." +
           "\n The wave machine malfunctioned.";
         }
+        if (sadistValue > 85) {
+          this.vText = "We told you that you could use any means necessary.... but still, Flppers." +
+          "\n you went too far. We have evaluated that your sadist value is " + sadistValue + " which according to our studies" +
+          "\n means that you enjoyed hurting our suspects. That is not acceptable, and you know it, Flippers."
+        }
         this.background.scale.setTo(1280/this.background.width, 720/this.background.height);
-        this.endText = game.add.text(640, 50, this.vText, {font: '20px Orbitron', fill: '#FFFFFF'});
+        this.endText = game.add.text(640, 50, this.vText, {font: '20px Orbitron', fill: '#000000'});
         this.endText.anchor.setTo(0.5,0.5);
 
         this.buildingsBack = [];

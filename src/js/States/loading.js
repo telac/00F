@@ -15,13 +15,12 @@ Loading.prototype = {
     loadImages: function () {
         // Backgrounds
         game.load.image('background', 'content/img/backgrounds/uusivesitausta.png');
-        game.load.image("winscreen", "content/winscreen.png");
         game.load.image("backgroundOfDoom", "content/img/backgrounds/maisemaDOOM.png");
         game.load.image("backgroundOfNotDoom", "content/img/backgrounds/maisemanotDOOM.png");
         game.load.image("menuscreen", "content/img/backgrounds/menu1.png");
         game.load.image("tutorial-1", "content/img/backgrounds/tutorial-1.png");
 
-        game.load.image("enter-key", "content/enter-key-small.png");
+        game.load.image("enter-key", "content/img/misc/enter-key-small.png");
         game.load.image('console', 'content/img/buttons/console.png');
         game.load.image("walrus", "content/img/backgrounds/mursu1.png");
         game.load.image("walrus1", "content/img/backgrounds/mursu2.png");
