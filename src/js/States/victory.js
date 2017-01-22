@@ -30,7 +30,7 @@ Victory.prototype = {
         else if (!playerWon && chosenAlive) {
           this.background = game.add.sprite(0,0,"backgroundOfNotDoom");
           this.vText = "You fool! You let the culprit run free and chose the wrong fella! The sea is doomed."+
-          "\n All your dolphin-powers have ben revoked and you WILL BE EXILED FROM THE DOLPHIN COMMUNITY"+
+          "\n All your dolphin-powers have ben revoked and you WILL BE EXILED FROM THE DOLPHIN COMMUNITY."+
           "\n Humanity wins.";
         }
         else {
